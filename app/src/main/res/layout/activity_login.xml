@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/gotoMainButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="21dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="#00000000"
+                android:fontFamily="@font/scdream6"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="둘러보기"
+                android:textColor="#242424" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/userImage"
+        android:layout_width="197dp"
+        android:layout_height="181dp"
+        android:layout_gravity="center"
+        android:background="@drawable/doyouwant" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="287dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:fontFamily="@font/scdream5"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textColor="#cccccc"
+            android:textColorHint="#cccccc"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="287dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center|center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:fontFamily="@font/scdream5"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:textColor="#242424"
+            android:textColorHint="#cccccc"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="#86c76e"
+            android:fontFamily="@font/scdream6"
+            android:gravity="center"
+            android:text="로그인"
+            android:textColor="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/gotoSignupButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="22dp"
+                android:layout_height="13dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:fontFamily="@font/scdream5"
+                android:onClick="onClick"
+                android:text="회원가입"
+                android:textColor="#484848"
+                android:textSize="10sp" />
+
+            <View
+                android:layout_width="94dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="#00000000"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/forgot"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:fontFamily="@font/scdream5"
+                android:text="비밀번호를 잊어버렸어요!"
+                android:textColor="#242424"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

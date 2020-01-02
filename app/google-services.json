@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1099014624972",
+    "firebase_url": "https://jmt-project-e3de3.firebaseio.com",
+    "project_id": "jmt-project-e3de3",
+    "storage_bucket": "jmt-project-e3de3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099014624972:android:d64a66f07d6452efbb9469",
+        "android_client_info": {
+          "package_name": "com.example.jmt_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1099014624972-f37sn917qchk7d95oano02mq83ddjpa6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY0YszdZguHcwW1fDDsEPtCNIxFjuaT70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1099014624972-f37sn917qchk7d95oano02mq83ddjpa6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099014624972:android:123dccfadbacdaa9bb9469",
+        "android_client_info": {
+          "package_name": "org.techtown.jmt_review"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1099014624972-f37sn917qchk7d95oano02mq83ddjpa6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY0YszdZguHcwW1fDDsEPtCNIxFjuaT70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1099014624972-f37sn917qchk7d95oano02mq83ddjpa6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
