@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">전맛탱</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="chicken_pizza">치킨&amp;피자</string>
+    <string name="cafe_bar">카페&amp;주점</string>
+</resources>
