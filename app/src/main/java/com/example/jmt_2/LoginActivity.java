@@ -2,6 +2,7 @@ package com.example.jmt_2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,8 +15,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity<user> extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private FirebaseAuth mAuth;
 
@@ -30,6 +32,16 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.loginButton).setOnClickListener(onClickListener);
         findViewById(R.id.gotoSignupButton).setOnClickListener(onClickListener);
         findViewById(R.id.gotoMainButton).setOnClickListener(onClickListener);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(user != null){
+            //회원가입 or 로그인
+            for (UserInfo profile : user.getProviderData()) {
+                // Name, email address, and profile photo Url
+                String name = profile.getDisplayName();
+            }
+        }
     }
 
     @Override
@@ -50,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                     gotoSignupActivity();
                     break;
                 case R.id.gotoMainButton:
+                    Log.e("test","buttonclick");
                     gotoMainActivity();
                     break;
             }
@@ -92,8 +105,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void gotoMainActivity() {
+        Log.e("test","buttowon");
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+
+    private void startLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }

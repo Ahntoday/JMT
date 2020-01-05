@@ -6,13 +6,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class FilteringActivity extends AppCompatActivity {
 
     HomeFragment homeFragment;
     Button buttons[] = new Button[24];
     Button buttonComplete;
-    Button buttonClose;
+    ImageButton buttonClose;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class FilteringActivity extends AppCompatActivity {
         buttons[22] = (Button) findViewById(R.id.filterButton22);
         buttons[23] = (Button) findViewById(R.id.filterButton23);
         buttonComplete = (Button) findViewById(R.id.buttonComplete);
-        buttonClose = (Button) findViewById(R.id.closeButton);
+        buttonClose = (ImageButton) findViewById(R.id.closeButton);
 
 
         buttonClose.setOnClickListener(new View.OnClickListener() {

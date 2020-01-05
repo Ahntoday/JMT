@@ -3,142 +3,201 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="575">
 
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_gravity="right"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:drawableEnd="@drawable/ic_search_24dp"
-        android:background="#00000000"/>
-
-    <RelativeLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="20" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:text="오늘은"
-            android:fontFamily="@font/scdream5"
-            android:textColor="#484848"
-            android:textSize="24sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
-            android:layout_toEndOf="@+id/textView"
-            android:layout_toRightOf="@+id/textView"
-            android:text="예대"
-            android:fontFamily="@font/scdream6"
-            android:textColor="#242424"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="30dp"
-            android:layout_toEndOf="@+id/textView2"
-            android:layout_toRightOf="@+id/textView2"
-            android:text="에서"
-            android:fontFamily="@font/scdream5"
-            android:textColor="#484848"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:text="뜨끈한 찜∙탕"
-            android:fontFamily="@font/scdream6"
-            android:textColor="#242424"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView4"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
-            android:text="한 끼 어떠세요?"
-            android:fontFamily="@font/scdream5"
-            android:textColor="#484848"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/homeFilterButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView5"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="14dp"
-            android:background="#00000000"
-            android:drawableRight="@drawable/filter_size_13dp"
-            android:fontFamily="@font/scdream5"
-            android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="#후문 #한식 #가성비"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/homeFilterButton"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="150dp"
-            android:fontFamily="@font/scdream6"
-            android:text="이 식당 한번 가보세요"
-            android:textColor="#484848"
-            android:textSize="14sp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
+        <View
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_below="@+id/textView6"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="20dp"
-            android:scrollbars="horizontal"></androidx.recyclerview.widget.RecyclerView>
+            android:layout_weight="0.895" />
 
-    </RelativeLayout>
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.055"
+            android:background="@drawable/ic_search_20dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="535"
+        android:orientation="vertical"
+        android:weightSum="535">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="170"
+            android:orientation="horizontal"
+            android:weightSum="170">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/scdream5"
+                    android:text="오늘은"
+                    android:textColor="#484848"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toEndOf="@+id/textView"
+                    android:layout_toRightOf="@+id/textView"
+                    android:fontFamily="@font/scdream6"
+                    android:text="예대"
+                    android:textColor="#242424"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toEndOf="@+id/textView2"
+                    android:layout_toRightOf="@+id/textView2"
+                    android:fontFamily="@font/scdream5"
+                    android:text="에서"
+                    android:textColor="#484848"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/scdream6"
+                    android:text="뜨끈한 찜∙탕"
+                    android:textColor="#242424"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView4"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/scdream5"
+                    android:text="한 끼 어떠세요?"
+                    android:textColor="#484848"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/homeFilterButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView5"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="14dp"
+                    android:background="#00000000"
+                    android:fontFamily="@font/scdream5"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="#후문 #한식 #가성비"
+                    android:textSize="13sp" />
+
+                <ImageButton
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_below="@+id/textView5"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="17dp"
+                    android:layout_toEndOf="@+id/homeFilterButton"
+                    android:background="@drawable/filter_size_13dp" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="130"
+            android:background="#00000000"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="235"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/homeFilterButton"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/scdream6"
+                android:text="이 식당 한번 가보세요"
+                android:textColor="#484848"
+                android:textSize="14sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textView6"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:scrollbars="horizontal"></androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
