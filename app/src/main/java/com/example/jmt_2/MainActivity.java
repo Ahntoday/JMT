@@ -9,6 +9,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,31 +25,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.e("test","mainactivity");
         getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, homeFragment).commit();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new NavigationSelectedListener());
         bottomNavigationView.setItemIconTintList(null);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if(user ==null){
-            startLoginActivity();
-        }else{
-            //회원가입 or 로그인
-            for (UserInfo profile : user.getProviderData()) {
-                // Name, email address, and profile photo Url
-                String name = profile.getDisplayName();
 
-            }
 
-        }
 
     }
-    private void startLoginActivity() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
+
+
 
     class NavigationSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {
 

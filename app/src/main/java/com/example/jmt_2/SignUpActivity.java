@@ -74,7 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
-
+                                    gotoMainActivity();
                                 } else {
                                     if (task.getException() != null) {
                                         startToast("비밀번호 다시 입력해주세요.");
@@ -93,6 +93,11 @@ public class SignUpActivity extends AppCompatActivity {
     }
     private void gotoLoginActivity(){
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+    private void gotoMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
