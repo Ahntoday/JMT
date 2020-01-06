@@ -71,7 +71,7 @@
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/textPlace"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
@@ -81,7 +81,7 @@
                     android:layout_toEndOf="@+id/textView"
                     android:layout_toRightOf="@+id/textView"
                     android:fontFamily="@font/scdream6"
-                    android:text="예대"
+                    android:text="전대"
                     android:textColor="#242424"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -94,15 +94,15 @@
                     android:layout_marginStart="3dp"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="30dp"
-                    android:layout_toEndOf="@+id/textView2"
-                    android:layout_toRightOf="@+id/textView2"
+                    android:layout_toEndOf="@+id/textPlace"
+                    android:layout_toRightOf="@+id/textPlace"
                     android:fontFamily="@font/scdream5"
                     android:text="에서"
                     android:textColor="#484848"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textMenuMent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/textView"
@@ -112,7 +112,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/scdream6"
-                    android:text="뜨끈한 찜∙탕"
+                    android:text="맛있는"
                     android:textColor="#242424"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -121,7 +121,7 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/textView4"
+                    android:layout_below="@+id/textMenuMent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginStart="20dp"

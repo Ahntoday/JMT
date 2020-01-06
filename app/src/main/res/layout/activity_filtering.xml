@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,31 +9,33 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="20"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="24"
+        android:layout_weight="20"
         android:orientation="horizontal"
         android:weightSum="360">
+
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="16"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <ImageButton
-            android:id="@+id/closeButton"
+            android:id="@+id/buttonClose"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@drawable/ic_close_15dp"
-            android:layout_weight="24" />
+            android:layout_weight="20"
+            android:background="@drawable/ic_close_15dp" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="13"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <TextView
             android:layout_width="0dp"
@@ -43,19 +44,19 @@
             android:fontFamily="@font/scdream6"
             android:text="FILTER"
             android:textColor="#212121"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="192"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/resetButton"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="35"
             android:background="#00000000"
@@ -67,298 +68,29 @@
             android:textSize="12sp"
             android:textStyle="bold" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="20"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <!--메뉴-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_marginLeft="20dp"
-        android:layout_weight="130">
+        android:layout_weight="130"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/scdream6"
             android:text="메뉴"
-            android:fontFamily="@font/scdream6"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#212121"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="23dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/filterButton0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="전체"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="한식"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="분식"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="양식"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="일식"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="중식"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/filterButton6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="@string/chicken_pizza"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="패스트푸드"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="@string/cafe_bar"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <!--위치-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="160"
-        android:layout_marginLeft="20dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="위치"
-            android:fontFamily="@font/scdream6"
-            android:textSize="12sp"
-            android:textStyle="bold"
             android:textColor="#212121"
-            />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="23dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/filterButton9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="전체"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="후문"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="상대"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="정문"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-            <Button
-                android:id="@+id/filterButton13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="예대"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/filterButton14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:background="@drawable/button_filter"
-                android:text="전철우"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
-
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <!--키워드-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="190"
-        android:layout_marginLeft="20dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="키워드"
-            android:fontFamily="@font/scdream6"
             android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#212121" />
+            android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
@@ -370,61 +102,330 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/filterButton15"
+                android:id="@+id/filterButton_allMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
+                android:text="전체"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_koreanFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="한식"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_schoolFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="분식"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_westernFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="양식"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_japaneseFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="일식"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_chineseFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="중식"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/filterButton_chickenPizza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/chicken_pizza"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_fastFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="패스트푸드"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_cafePub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/cafe_bar"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--위치-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="160"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/scdream6"
+            android:text="위치"
+            android:textColor="#212121"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="23dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/filterButton_allPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="전체"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_backGate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="후문"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_sangdaeGate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="상대"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_frontGate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="정문"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/filterButton_artGate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="예대"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/filterButton_geoncheolwooGate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="전철우"
+                android:textColor="#999999"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--키워드-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="190"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/scdream6"
+            android:text="키워드"
+            android:textColor="#212121"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="23dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/filterButton_cheapMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
                 android:text="가성비"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
 
             <Button
-                android:id="@+id/filterButton16"
+                android:id="@+id/filterButton_eatAlone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:background="@drawable/button_filter"
                 android:text="혼밥"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
 
             <Button
-                android:id="@+id/filterButton17"
+                android:id="@+id/filterButton_homework"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:background="@drawable/button_filter"
                 android:text="과제"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
 
             <Button
-                android:id="@+id/filterButton18"
+                android:id="@+id/filterButton_comeOutFast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:background="@drawable/button_filter"
                 android:text="빨리나오는"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -432,61 +433,61 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/filterButton19"
+                android:id="@+id/filterButton_atmosphere"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:background="@drawable/button_filter"
                 android:text="분위기"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
 
             <Button
-                android:id="@+id/filterButton20"
+                android:id="@+id/filterButton_teamProject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:background="@drawable/button_filter"
                 android:text="팀플"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
 
             <Button
-                android:id="@+id/filterButton21"
+                android:id="@+id/filterButton_comeAgain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:background="@drawable/button_filter"
                 android:text="또오고싶은"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
 
             <Button
-                android:id="@+id/filterButton22"
+                android:id="@+id/filterButton_diningTogether"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:background="@drawable/button_filter"
                 android:text="회식"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -494,29 +495,29 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/filterButton23"
+                android:id="@+id/filterButton_badPlace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/scdream5"
                 android:minWidth="0dp"
                 android:minHeight="0dp"
-                android:background="@drawable/button_filter"
                 android:text="여기별로임"
-                android:textSize="13sp"
-                android:fontFamily="@font/scdream5"
-                android:textColor="#999999"/>
+                android:textColor="#999999"
+                android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="40"/>
+        android:layout_weight="40" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="45">
+        android:layout_weight="45"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/buttonComplete"
@@ -524,28 +525,20 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:background="@drawable/button_select_complete"
+            android:fontFamily="@font/scdream6"
             android:minWidth="0dp"
             android:minHeight="0dp"
-            android:background="@drawable/button_select_complete"
             android:text="선택완료"
-            android:textSize="14sp"
-            android:fontFamily="@font/scdream6"
             android:textColor="#999999"
-            android:textStyle="bold"/>
+            android:textSize="14sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="11"/>
-
-
-
-
-
-
-
-
+        android:layout_weight="11" />
 
 
 </LinearLayout>
