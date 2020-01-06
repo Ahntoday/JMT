@@ -64,7 +64,7 @@
             app:srcCompat="@drawable/megaphone" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textPlace"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
