@@ -67,7 +67,7 @@
                     android:layout_marginTop="30dp"
                     android:fontFamily="@font/scdream5"
                     android:text="오늘은"
-                    android:textColor="#484848"
+                    android:textColor="@color/colorMainBlack"
                     android:textSize="24sp" />
 
                 <TextView
@@ -82,7 +82,7 @@
                     android:layout_toRightOf="@+id/textView"
                     android:fontFamily="@font/scdream6"
                     android:text="전대"
-                    android:textColor="#242424"
+                    android:textColor="@color/colorMainBlack"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -98,7 +98,7 @@
                     android:layout_toRightOf="@+id/textPlace"
                     android:fontFamily="@font/scdream5"
                     android:text="에서"
-                    android:textColor="#484848"
+                    android:textColor="@color/colorSubBlack"
                     android:textSize="24sp" />
 
                 <TextView
@@ -112,8 +112,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/scdream6"
-                    android:text="맛있는"
-                    android:textColor="#242424"
+                    android:text="맛있는 식사"
+                    android:textColor="@color/colorMainBlack"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -129,7 +129,7 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/scdream5"
                     android:text="한 끼 어떠세요?"
-                    android:textColor="#484848"
+                    android:textColor="@color/colorSubBlack"
                     android:textSize="24sp" />
 
                 <Button
@@ -146,7 +146,8 @@
                     android:minWidth="0dp"
                     android:minHeight="0dp"
                     android:text="#후문 #한식 #가성비"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    android:textColor="@color/colorSubBlack"/>
 
                 <ImageButton
                     android:layout_width="13dp"

@@ -9,18 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-
-import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends Fragment {
 
@@ -69,7 +64,8 @@ public class HomeFragment extends Fragment {
         String textPlace = intent.getStringExtra("textPlace");
         String textMenuMent = intent.getStringExtra("textMenuMent");
         String textMenu = intent.getStringExtra("textMenu");
-        String textKeyword = intent.getStringExtra("textKeyWord");
+        String textKeyword = intent.getStringExtra("textKeyword");
+
         if (textPlace == null && textMenuMent == null) {
             textView.setText("전대");
             textView2.setText("맛있는 식사");
@@ -82,6 +78,14 @@ public class HomeFragment extends Fragment {
         } else {
             textView.setText(textPlace);
             textView2.setText(textMenuMent);
+        }
+
+        if (textMenu == null) {
+            textMenu = "오늘";
+        }
+
+        if (textKeyword == null) {
+            textKeyword = "뭐먹징?";
         }
 
         String textFilterButton = "#" + textView.getText().toString() + " #" + textMenu + " #" + textKeyword;

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class FilteringActivity extends AppCompatActivity {
 
@@ -97,20 +98,18 @@ public class FilteringActivity extends AppCompatActivity {
                     for (Button tempButton : buttonsMenu) {
                         int position = (Integer) v.getTag();
 
-
                         if (newButton == tempButton) {
                             if (buttonsMenu[position].getCurrentTextColor() == getResources().getColor(R.color.colorMainGreen)) {
-                               setButtonClicked(buttonsMenu[position]);
+                                setAllButtonUnselected(buttonsMenu);
+                                setButtonUnSelected(buttonsMenu[position]);
+                                buttonsMenuState[position] = false;
                             } else {
-                                setButtonUnClicked(buttonsMenu[position]);
+                                setAllButtonUnselected(buttonsMenu);
+                                setButtonSelected(buttonsMenu[position]);
+                                buttonsMenuState[position] = true;
                             }
                         }
                         textMenu = buttonsMenu[position].getText().toString();
-
-                        if (textMenu == null) {
-                            textMenu = "전체";
-                        }
-
                         textMenuMent = menuMent[position];
                     }
                 }
@@ -127,9 +126,13 @@ public class FilteringActivity extends AppCompatActivity {
                     for (Button tempButton : buttonsPlace) {
                         if (newButton == tempButton) {
                             if (buttonsPlace[position].getCurrentTextColor() == getResources().getColor(R.color.colorMainGreen)) {
-                                setButtonClicked(buttonsPlace[position]);
+                                setAllButtonUnselected(buttonsPlace);
+                                setButtonUnSelected(buttonsPlace[position]);
+                                buttonsPlaceState[position] = false;
                             } else {
-                                setButtonUnClicked(buttonsPlace[position]);
+                                setAllButtonUnselected(buttonsPlace);
+                                setButtonSelected(buttonsPlace[position]);
+                                buttonsPlaceState[position] = true;
                             }
                         }
                     }
@@ -153,16 +156,17 @@ public class FilteringActivity extends AppCompatActivity {
                     for (Button tempButton : buttonsKeyword) {
                         if (newButton == tempButton) {
                             if (buttonsKeyword[position].getCurrentTextColor() == getResources().getColor(R.color.colorMainGreen)) {
-                                setButtonClicked(buttonsKeyword[position]);
+                                setAllButtonUnselected(buttonsKeyword);
+                                setButtonUnSelected(buttonsKeyword[position]);
+                                buttonsKeywordState[position] = false;
                             } else {
-                                setButtonUnClicked(buttonsKeyword[position]);
+                                setAllButtonUnselected(buttonsKeyword);
+                                setButtonSelected(buttonsKeyword[position]);
+                                buttonsKeywordState[position] = true;
                             }
                         }
                     }
                     textKeyword = buttonsKeyword[position].getText().toString();
-                    if (textKeyword == null) {
-                        textKeyword = "전체";
-                    }
                 }
             });
         }
@@ -171,16 +175,29 @@ public class FilteringActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (buttonComplete.getCurrentTextColor() == getResources().getColor(R.color.colorWhite)) {
-                    buttonComplete.setBackgroundResource(R.drawable.button_select_complete);
-                    buttonComplete.setTextColor(getResources().getColor(R.color.colorUnSelectedText));
+                    setButtonCompleteUnselected();
                 } else {
-                    buttonComplete.setBackgroundResource(R.drawable.button_select_complete_selected);
-                    buttonComplete.setBackgroundColor(getResources().getColor(R.color.colorMainGreen));
-                    buttonComplete.setTextColor(getResources().getColor(R.color.colorWhite));
+                    setButtonCompleteSelected();
                 }
-                gotoMainActivity();
+
+                if (checkAllButtonUnselected(buttonsMenuState)) {
+                    setButtonCompleteUnselected();
+                    makeToast();
+                } else if (checkAllButtonUnselected(buttonsPlaceState)) {
+                    setButtonCompleteUnselected();
+                    makeToast();
+                } else if (checkAllButtonUnselected(buttonsKeywordState)) {
+                    setButtonCompleteUnselected();
+                    makeToast();
+                } else {
+                    gotoMainActivity();
+                }
+
+
             }
         });
+
+
     }
 
     private void gotoMainActivity() {
@@ -193,14 +210,43 @@ public class FilteringActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void setButtonClicked(Button button) {
+    private void setButtonUnSelected(Button button) {
         button.setBackgroundResource(R.drawable.button_filter);
         button.setTextColor(getResources().getColor(R.color.colorUnSelectedText));
     }
 
-    private void setButtonUnClicked(Button button) {
+    private void setButtonSelected(Button button) {
         button.setBackgroundResource(R.drawable.button_filter_selected);
         button.setTextColor(getResources().getColor(R.color.colorMainGreen));
     }
 
+    private void setButtonCompleteSelected() {
+        buttonComplete.setBackgroundResource(R.drawable.button_select_complete_selected);
+        buttonComplete.setBackgroundColor(getResources().getColor(R.color.colorMainGreen));
+        buttonComplete.setTextColor(getResources().getColor(R.color.colorWhite));
+    }
+
+    private  void setButtonCompleteUnselected() {
+        buttonComplete.setBackgroundResource(R.drawable.button_select_complete);
+        buttonComplete.setTextColor(getResources().getColor(R.color.colorUnSelectedText));
+    }
+
+
+    private boolean checkAllButtonUnselected(Boolean buttonState[]) {
+        for (int i = 0; i < buttonState.length; i++) {
+            if (buttonState[i] == true)
+                return false;
+        }
+        return true;
+    }
+
+    private void setAllButtonUnselected(Button buttons[]) {
+        for (Button tempButton : buttons) {
+            setButtonUnSelected(tempButton);
+        }
+    }
+
+    private void makeToast() {
+        Toast.makeText(this, "앗! 선택되지 않은 정보가 있어요!", Toast.LENGTH_SHORT).show();
+    }
 }
