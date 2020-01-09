@@ -20,7 +20,7 @@ public class FinishActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         findViewById(R.id.backButton).setOnClickListener(onClickListener);
-        findViewById(R.id.gotoMainButton).setOnClickListener(onClickListener);
+        findViewById(R.id.gotoStartButton).setOnClickListener(onClickListener);
 
     }
 
@@ -38,7 +38,7 @@ public class FinishActivity extends AppCompatActivity {
                 case R.id.backButton:
                     gotoSignUpActivity();
                     break;
-                case R.id.gotoMainButton:
+                case R.id.gotoStartButton:
                     gotoMainActivity();
                     break;
 

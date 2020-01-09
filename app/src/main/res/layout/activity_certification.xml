@@ -1,100 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:fillViewport="true"
+    android:weightSum="910">
+
 
     <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content"
+        android:layout_weight="910"
+        android:background="#FFFFFF"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:weightSum="910">
 
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="24dp"
-            android:layout_height="19dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/back" />
-
-        <TextView
-            android:layout_width="62dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/scdream6"
-            android:text="학생인증"
-            android:textColor="#242424" />
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_width="fill_parent"
+            android:layout_height="910dp"
+            android:background="@android:color/transparent"
+            android:orientation="vertical"
+            android:weightSum="910">
 
-            <Button
-                android:id="@+id/nextButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="35dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="190dp"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="21dp"
-                android:background="#00242424"
-                android:fontFamily="@font/scdream6"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:text="다음"
-                android:textColor="#242424" />
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="60" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="110"
+                android:orientation="horizontal"
+                android:weightSum="360">
+
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="280"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/userNickname"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/scdream6"
+                            android:text="닉네임"
+                            android:textColor="#7B7B7B"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/scdream6"
+                            android:text="님"
+                            android:textColor="#D2D2D2"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="230dp"
+                        android:layout_height="30dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/scdream6"
+                            android:text="학생증 인증을 해주세요"
+                            android:textColor="#d2d2d2"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp"
+                        android:fontFamily="@font/scdream4"
+                        android:text="전맛탱에서는 무분별한 광고 및 홍보게시물 게재를 방지하기 위해\n인증절차를 실시하고있습니다."
+                        android:textColor="#7b7b7b"
+                        android:textSize="10sp" />
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="30" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="230"
+                android:orientation="horizontal"
+                android:weightSum="360">
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+
+                <TextView
+                    android:id="@+id/message"
+                    android:layout_width="280dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="280"
+                    android:background="@drawable/message_style"
+                    android:fontFamily="@font/scdream4"
+                    android:gravity="center"
+                    android:text="업로드된 이미지가 보일 곳" />
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/addCamera"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="280dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_style"
+                    android:fontFamily="@font/scdream6"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:text="사진추가"
+                    android:textColor="#aecc6a" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="15" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:orientation="horizontal"
+                android:weightSum="360">
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+
+                <ImageView
+                    android:layout_width="280dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="280"
+                    android:background="#d2d2d2"
+                    android:gravity="center" />
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="15" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="40"
+                android:orientation="horizontal"
+                android:weightSum="360">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+
+                <TextView
+                    android:id="@+id/exText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="100"
+                    android:fontFamily="@font/scdream6"
+                    android:text="촬영예시"
+                    android:textColor="#7B7B7B"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="220" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="30"
+                android:weightSum="360"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="280"
+                    android:fontFamily="@font/scdream4"
+                    android:text="이름 학과 학번을 제외한 소중한 개인정보 (카드번호 및 카드유효기간) 는 꼭 가려서 올려주세요 !"
+                    android:textColor="#fc123f"
+                    android:textSize="10sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="250"
+                android:orientation="horizontal"
+                android:weightSum="360">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55" />
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_weight="250"
+                    android:background="@drawable/studentcardxhdpi" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="55" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="60"
+                android:orientation="horizontal"
+                android:weightSum="360">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40" />
+
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="20"
+                    android:background="@drawable/back" />
+
+                <Button
+                    android:id="@+id/back"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="40"
+                    android:fontFamily="@font/scdream6"
+                    android:gravity="center|left"
+                    android:text="이전"
+                    android:textColor="#323232"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="160" />
+
+                <Button
+                    android:id="@+id/next"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:fontFamily="@font/scdream6"
+                    android:gravity="right|center_horizontal|center_vertical"
+                    android:text="다음"
+                    android:textColor="#323232"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/nextButton"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="20"
+                    android:background="@drawable/nextxhdpi" />
+            </LinearLayout>
+
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:background="#86c76e">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="66dp"
-            android:layout_height="17dp"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/megaphone" />
-
-        <TextView
-            android:id="@+id/textPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:fontFamily="@font/scdream5"
-            android:gravity="center_vertical"
-            android:text=" 무분별한 광고 및 홍보게시물 게재를 방지하기 위해\n 인증절차를 실시하고 있습니다."
-            android:textColor="#FFFFFF"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="502dp"
-        android:gravity="bottom"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/gotoFinishButton"
-            android:layout_width="312dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@drawable/button_style"
-            android:fontFamily="@font/scdream6"
-            android:text="사진촬영"
-            android:textColor="#86C76E" />
-
-
-
-
-    </LinearLayout>
-</LinearLayout>
+</ScrollView>

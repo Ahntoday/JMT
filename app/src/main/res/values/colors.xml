@@ -6,4 +6,6 @@
     <color name="colorMainGreen">#AECC6A</color>
     <color name="colorUnSelectedText">#999999</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorLoginGreen">#aecc6a</color>
+
 </resources>

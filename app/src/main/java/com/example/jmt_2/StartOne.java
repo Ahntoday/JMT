@@ -1,25 +1,18 @@
 package com.example.jmt_2;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-public class MypageFragment extends Fragment {
+public class StartOne extends Fragment {
     @Nullable
     @Override
-
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView nickname = (TextView) getView().findViewById(R.id.nickname);
-
-        return inflater.inflate(R.layout.mypage_fragment, container, false);
-
+        return inflater.inflate(R.layout.login_fragment_one, container, false);
     }
-
 }
