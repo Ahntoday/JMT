@@ -3,57 +3,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="640">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <View
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="end"
-            android:orientation="horizontal">
+            android:layout_weight="0.95" />
 
-            <ImageButton
-                android:id="@+id/gotoMainButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="21dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/close" />
+        <ImageButton
+            android:id="@+id/gotoStartButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/close" />
 
-        </LinearLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
     </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/Login"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginBottom="75dp"
-        android:fontFamily="@font/scdream6"
-        android:text="로그인"
-        android:textColor="#323232"
-        android:textSize="20sp" />
+        android:layout_height="0dp"
+        android:layout_weight="100">
+
+        <TextView
+            android:id="@+id/Login"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="75dp"
+            android:fontFamily="@font/scdream6"
+            android:text="로그인"
+            android:textColor="#323232"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="0dp"
+        android:layout_weight="480"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/emailEditText"
-            android:layout_width="328dp"
+            android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
@@ -67,7 +79,7 @@
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:layout_width="328dp"
+            android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_gravity="center|center_horizontal"
             android:layout_marginLeft="40dp"
@@ -83,54 +95,74 @@
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="326dp"
-            android:layout_height="40dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
-            android:background="#AECC6A"
+            android:background="@drawable/signup_button_style"
             android:fontFamily="@font/scdream6"
             android:gravity="center"
             android:text="로그인"
             android:textColor="#FFFFFF" />
 
         <LinearLayout
-            android:layout_width="324dp"
+            android:layout_width="360dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:weightSum="4"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="360">
+
 
             <Button
                 android:id="@+id/gotoSignupButton"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="22dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="right|center_vertical"
+                android:layout_weight="170"
                 android:background="#00FFFFFF"
                 android:fontFamily="@font/scdream5"
+                android:gravity="right|center_vertical"
                 android:onClick="onClick"
                 android:text="회원가입"
                 android:textColor="#242424"
                 android:textSize="12sp" />
 
             <View
-                android:layout_width="22dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.5"
+                android:layout_weight="5"
+                android:background="#00000000"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="15dp"
+                android:layout_weight="10"
+                android:background="@drawable/barxhdpi"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
                 android:background="#00000000"
                 android:visibility="invisible" />
 
             <Button
                 android:id="@+id/forgot"
                 style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="85dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.5"
+                android:layout_weight="170"
                 android:background="#00FFFFFF"
                 android:fontFamily="@font/scdream5"
-                android:text="비밀번호를 잊어버렸어요!"
+                android:gravity="left|center_vertical"
+                android:text="비밀번호 찾기"
                 android:textColor="#242424"
                 android:textSize="12sp" />
+
+
         </LinearLayout>
 
     </LinearLayout>

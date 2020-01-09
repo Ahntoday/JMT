@@ -31,7 +31,7 @@ public class LoginActivity<user> extends AppCompatActivity {
 
         findViewById(R.id.loginButton).setOnClickListener(onClickListener);
         findViewById(R.id.gotoSignupButton).setOnClickListener(onClickListener);
-        findViewById(R.id.gotoMainButton).setOnClickListener(onClickListener);
+        findViewById(R.id.gotoStartButton).setOnClickListener(onClickListener);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -61,9 +61,9 @@ public class LoginActivity<user> extends AppCompatActivity {
                 case R.id.gotoSignupButton:
                     gotoSignupActivity();
                     break;
-                case R.id.gotoMainButton:
+                case R.id.gotoStartButton:
                     Log.e("test","buttonclick");
-                    gotoMainActivity();
+                    gotoStartActivity();
                     break;
             }
         }
@@ -81,7 +81,7 @@ public class LoginActivity<user> extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("전맛탱 로그인에 성공하였습니다");
-                                gotoMainActivity();
+                                gotoStartActivity();
                             } else {
                                 if (task.getException() != null) {
                                     startToast(task.getException().toString());
@@ -104,9 +104,9 @@ public class LoginActivity<user> extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void gotoMainActivity() {
+    private void gotoStartActivity() {
         Log.e("test","buttowon");
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, StartActivity.class);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
