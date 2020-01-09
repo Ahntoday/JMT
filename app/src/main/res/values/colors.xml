@@ -7,5 +7,7 @@
     <color name="colorUnSelectedText">#999999</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorLoginGreen">#aecc6a</color>
-
+    <color name="colorMainBlack">#323232</color>
+    <color name="colorTabTextUnselected">#d2d2d2</color>
+    <color name="colorSubBlack">#7b7b7b</color>
 </resources>
