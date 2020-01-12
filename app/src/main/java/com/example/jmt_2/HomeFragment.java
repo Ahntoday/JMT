@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<CardData> cardData = new ArrayList<CardData>();
+    private ArrayList<CardData> cardData = new ArrayList<>();
     private Button filterButton;
     private TextView textView;
     private TextView textView2;

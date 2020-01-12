@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="476">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:orientation="horizontal"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="80"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="105"
+            android:fontFamily="@font/scdream4"
+            android:text="궁금한 점 공유하는 "
+            android:textAlignment="viewEnd"
+            android:textColor="#484848"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/chonnam_qna"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="95"
+            android:fontFamily="@font/scdream6"
+            android:text="@string/chonnamQnA"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorMainBlack"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="80"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:visibility="invisible" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="448">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/review_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+
+
+</LinearLayout>
