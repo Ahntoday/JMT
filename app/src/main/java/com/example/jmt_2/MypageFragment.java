@@ -16,8 +16,6 @@ public class MypageFragment extends Fragment {
     @Override
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView nickname = (TextView) getView().findViewById(R.id.nickname);
-
         return inflater.inflate(R.layout.mypage_fragment, container, false);
 
     }

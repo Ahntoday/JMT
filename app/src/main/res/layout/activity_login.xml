@@ -73,7 +73,7 @@
             android:fontFamily="@font/scdream5"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
-            android:textColor="#cccccc"
+            android:textColor="#242424"
             android:textColorHint="#cccccc"
             android:textSize="14sp" />
 

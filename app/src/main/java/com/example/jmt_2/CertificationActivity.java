@@ -3,6 +3,7 @@ package com.example.jmt_2;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -36,6 +37,7 @@ public class CertificationActivity extends AppCompatActivity {
                 case R.id.nextButton:
                 case R.id.next:
                     gotoMainActivity();
+                    mOnPopupClick(v);
                     break;
                 case R.id.backButton:
                 case R.id.back:
@@ -55,13 +57,25 @@ public class CertificationActivity extends AppCompatActivity {
         finish();
     }
 
-    private void gotoMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    private void gotoPopUpActivity() {
+        Intent intent = new Intent(this, PopUpActivity.class);
         startActivity(intent);
         finish();
     }
 
+    public void mOnPopupClick(View v){
+        //데이터 담아서 팝업(액티비티) 호출
+        Intent intent = new Intent(this, PopUpActivity.class);
+        intent.putExtra("data", "Test Popup");
+        startActivityForResult(intent, 1);
+    }
+    private void gotoMainActivity() {
+        Log.e("test", "buttowon");
+        Intent intent = new Intent(this, MainActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

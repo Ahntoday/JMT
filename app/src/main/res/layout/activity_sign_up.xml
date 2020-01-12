@@ -205,24 +205,24 @@
         <ImageButton
             android:id="@+id/backButton"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="20"
+            android:layout_width="4dp"
+            android:layout_height="16dp"
             android:layout_gravity="center"
-            android:background="@drawable/back"/>
+            android:layout_weight="20"
+            android:background="@drawable/back" />
 
         <Button
             android:id="@+id/back"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="40"
-            android:fontFamily="@font/scdream6"
+            android:fontFamily="@font/scdream5"
             android:gravity="center|left"
             android:text="이전"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:textColor="#323232"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="14sp"
+            android:textStyle="normal" />
 
         <View
             android:layout_width="0dp"
@@ -236,21 +236,21 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="40"
-            android:fontFamily="@font/scdream6"
+            android:fontFamily="@font/scdream5"
             android:gravity="right|center_horizontal|center_vertical"
             android:text="다음"
             android:textColor="#323232"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
 
         <ImageButton
             android:id="@+id/nextButton"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_weight="20"
+            android:layout_width="1dp"
+            android:layout_height="16dp"
             android:layout_gravity="center"
-            android:background="@drawable/nextxhdpi"/>
+            android:layout_weight="20"
+            android:background="@drawable/nextxhdpi" />
 
     </LinearLayout>
 
