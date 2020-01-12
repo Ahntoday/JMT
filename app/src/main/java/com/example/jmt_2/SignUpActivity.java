@@ -15,12 +15,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG = "SignUpActivity";
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,19 +89,25 @@ public class SignUpActivity extends AppCompatActivity {
                                 Log.d(TAG, "onComplete: " + task.isSuccessful());
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    String key = database.getReference().child("users").push().getKey();
-                                    database.getReference().child("users").child(user.getUid()).setValue("nickname");
-                                    database.getReference().child("users").child(user.getUid()).child("nickname").setValue(nickname);
-                                    database.getReference().child("users").child(user.getUid()).setValue("email");
-                                    database.getReference().child("users").child(user.getUid()).child("email").setValue(email);
                                     gotoCertificationActivity();
+
+                                    String currentuser = mAuth.getUid();
+                                    String nickname = user.getDisplayName();
+
+                                    Log.v("알림", "현재로그인한 유저 " + currentuser);
+                                    //이 부분이 DB에 데이터 저장
+                                    UserData userdata = new UserData(nickname);
+
+                                    mDatabase = FirebaseDatabase.getInstance().getReference();
+                                    mDatabase.child("users").child(currentuser).setValue(userdata);
+
+
                                 } else {
                                     if (task.getException() != null) {
-                                        Toast.makeText(SignUpActivity.this, "", Toast.LENGTH_SHORT).show();
-                                        
+
                                     } else if (task.isSuccessful()) {
                                         FirebaseUser user = mAuth.getCurrentUser();
-                                        gotoMainActivity();
+                                        gotoPopUpActivity();
                                     }
                                 }
                                 // ...
@@ -120,6 +129,12 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void gotoCertificationActivity() {
         Intent intent = new Intent(this, CertificationActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void gotoPopUpActivity() {
+        Intent intent = new Intent(this, PopUpActivity.class);
         startActivity(intent);
         finish();
     }
