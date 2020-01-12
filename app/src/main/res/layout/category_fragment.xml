@@ -73,7 +73,7 @@
             android:layout_weight="35">
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/review_tabLayout"
+                android:id="@+id/category_tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorWhite"
@@ -92,12 +92,12 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="최신리뷰" />
+                    android:text="위치별" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/QnA" />
+                    android:text="상황별" />
             </com.google.android.material.tabs.TabLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -109,7 +109,7 @@
             android:visibility="invisible" />
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
+            android:id="@+id/category_viewPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="476" />
