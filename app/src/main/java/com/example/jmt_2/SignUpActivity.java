@@ -1,8 +1,8 @@
 package com.example.jmt_2;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,10 +15,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG = "SignUpActivity";
     private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         findViewById(R.id.nextButton).setOnClickListener(onClickListener);
         findViewById(R.id.backButton).setOnClickListener(onClickListener);
@@ -38,6 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -50,34 +57,57 @@ public class SignUpActivity extends AppCompatActivity {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch(v.getId()){
+            switch (v.getId()) {
                 case R.id.nextButton:
                     signUp();
                     break;
+                case R.id.next:
+                    signUp();
+                    break;
                 case R.id.backButton:
-                    gotoLoginActivity();
+                    gotoStartActivity();
+                    break;
+                case R.id.back:
+                    gotoStartActivity();
                     break;
             }
         }
     };
+
     private void signUp() {
-        String nickname = ((EditText)findViewById(R.id.nicknameEditText)).getText().toString();
-        String email = ((EditText) findViewById(R.id.emailEditText)).getText().toString();
+        final String nickname = ((EditText) findViewById(R.id.nicknameEditText)).getText().toString();
+        final String email = ((EditText) findViewById(R.id.emailEditText)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordEditText)).getText().toString();
         String passwordCheck = ((EditText) findViewById(R.id.passwordCheckEditText)).getText().toString();
 
-        if (nickname.length()>0 && email.length()>0 && password.length()>0 && passwordCheck.length()>0) {
+        if (nickname.length() > 0 && email.length() > 0 && password.length() > 0 && passwordCheck.length() > 0) {
             if (password.equals(passwordCheck)) {
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d(TAG, "onComplete: " + task.isSuccessful());
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    gotoMainActivity();
+                                    gotoCertificationActivity();
+
+                                    String currentuser = mAuth.getUid();
+                                    String nickname = user.getDisplayName();
+
+                                    Log.v("알림", "현재로그인한 유저 " + currentuser);
+                                    //이 부분이 DB에 데이터 저장
+                                    UserData userdata = new UserData(nickname);
+
+                                    mDatabase = FirebaseDatabase.getInstance().getReference();
+                                    mDatabase.child("users").child(currentuser).setValue(userdata);
+
+
                                 } else {
                                     if (task.getException() != null) {
-                                        startToast("비밀번호 다시 입력해주세요.");
+
+                                    } else if (task.isSuccessful()) {
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        gotoPopUpActivity();
                                     }
                                 }
                                 // ...
@@ -87,21 +117,38 @@ public class SignUpActivity extends AppCompatActivity {
                 startToast("비밀번호가 일치하지 않습니다.");
             }
 
-        }else{
+        } else {
             startToast("앗! 중간에 빠진 정보 입력해주세요!");
         }
     }
-    private void gotoLoginActivity(){
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
-    private void gotoMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+    private void gotoStartActivity() {
+        Intent intent = new Intent(this, StartActivity.class);
         startActivity(intent);
     }
 
-    private void startToast(String msg){
+    private void gotoCertificationActivity() {
+        Intent intent = new Intent(this, CertificationActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void gotoPopUpActivity() {
+        Intent intent = new Intent(this, PopUpActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void gotoMainActivity() {
+        Log.e("test", "buttowon");
+        Intent intent = new Intent(this, MainActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+
+    private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }
