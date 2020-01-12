@@ -16,13 +16,13 @@
         <View
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="85"
+            android:layout_weight="80"
             android:visibility="invisible" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
+            android:layout_weight="105"
             android:fontFamily="@font/scdream4"
             android:text="궁금한 점 공유하는 "
             android:textAlignment="viewEnd"
