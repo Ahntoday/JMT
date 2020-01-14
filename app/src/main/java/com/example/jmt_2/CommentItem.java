@@ -1,14 +1,25 @@
 package com.example.jmt_2;
 
+import android.graphics.Bitmap;
+
 public class CommentItem {
     private String nickname;
     private String comment;
     private int resId;
+    private Bitmap bitmap;
+    private boolean isDrawable = false;
 
     public CommentItem(String nickname, String comment, int resId) {
         this.nickname = nickname;
         this.comment = comment;
         this.resId = resId;
+        isDrawable = true;
+    }
+
+    public CommentItem(String nickname, String comment, Bitmap bitmap) {
+        this.nickname = nickname;
+        this.comment = comment;
+        this.bitmap = bitmap;
     }
 
     public String getNickname() {
@@ -35,4 +46,11 @@ public class CommentItem {
         this.resId = resId;
     }
 
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
 }

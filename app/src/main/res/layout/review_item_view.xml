@@ -127,12 +127,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="10"
+            android:layout_weight="20"
             android:fontFamily="@font/scdream6"
             android:text="0"
             android:textColor="#3e3e3e"
             android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="0dp"
@@ -148,7 +149,7 @@
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="210"
+            android:layout_weight="200"
             android:visibility="invisible" />
 
         <ImageButton
@@ -199,7 +200,7 @@
             android:id="@+id/header_imageView"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/temp_user_image_27dp"
+            android:src="@drawable/ic_temp_user_image_27dp"
             android:layout_gravity="center"
             android:layout_marginLeft="2dp"/>
 
@@ -219,15 +220,21 @@
             android:id="@+id/editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
             android:fontFamily="@font/scdream4"
             android:gravity="center_vertical"
             android:hint="댓글 달기"
             android:inputType="textPersonName|textEmailAddress"
             android:singleLine="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textSize="12sp" />
+
+            android:textColorHighlight="@color/colorSubBlack"
+            android:textColorLink="@color/colorSubBlack"
+            android:textCursorDrawable="@color/colorSubBlack"
+            android:textSize="12sp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
 
     </LinearLayout>
 
@@ -237,9 +244,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:descendantFocusability="afterDescendants"
         android:minHeight="?android:attr/listPreferredItemHeight"/>
-
-
-
 
 </LinearLayout>

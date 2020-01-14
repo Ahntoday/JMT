@@ -27,6 +27,7 @@
             android:visibility="invisible" />
 
         <ImageButton
+            android:id="@+id/write_imageButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -61,10 +62,11 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:layout_weight="521"
+        android:orientation="vertical"
         android:weightSum="521">
 
         <com.google.android.material.appbar.AppBarLayout
