@@ -45,4 +45,6 @@
                 android:resource="@xml/file_path" />
         </provider>
     </application>
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
 </manifest>

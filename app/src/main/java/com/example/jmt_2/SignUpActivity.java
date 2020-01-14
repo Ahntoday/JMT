@@ -2,6 +2,7 @@ package com.example.jmt_2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -15,7 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,6 +24,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
     private DatabaseReference mDatabase;
+    EditText nicknameEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,9 @@ public class SignUpActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+
+        nicknameEditText = (EditText) findViewById(R.id.nicknameEditText);
+
 
         findViewById(R.id.nextButton).setOnClickListener(onClickListener);
         findViewById(R.id.backButton).setOnClickListener(onClickListener);
@@ -58,16 +62,11 @@ public class SignUpActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.next:
                 case R.id.nextButton:
                     signUp();
                     break;
-                case R.id.next:
-                    signUp();
-                    break;
                 case R.id.backButton:
-                    gotoStartActivity();
-                    break;
-                case R.id.back:
                     gotoStartActivity();
                     break;
             }
@@ -89,18 +88,20 @@ public class SignUpActivity extends AppCompatActivity {
                                 Log.d(TAG, "onComplete: " + task.isSuccessful());
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    gotoCertificationActivity();
 
-                                    String currentuser = mAuth.getUid();
-                                    String nickname = user.getDisplayName();
+                                    String cu = mAuth.getUid();
+                                    String email = user.getEmail();
 
-                                    Log.v("알림", "현재로그인한 유저 " + currentuser);
+                                    Log.v("알림", "현재로그인한 유저 " + cu);
+                                    Log.v("알림", "유저 이름 " + nickname);
                                     //이 부분이 DB에 데이터 저장
-                                    UserData userdata = new UserData(nickname);
-
-                                    mDatabase = FirebaseDatabase.getInstance().getReference();
-                                    mDatabase.child("users").child(currentuser).setValue(userdata);
-
+                                    UserData userdata = new UserData(nickname, email);
+//                                    mDatabase = FirebaseDatabase.getInstance().getReference();
+//                                    mDatabase.child("users").child(cu).setValue(userdata);
+                                    database.getReference().child("users").child(cu).setValue(userdata);
+                                    database.getReference().child("nickNameList").child(nickname).setValue(email);
+                                    Toast.makeText(SignUpActivity.this, "FireBase 아이디 생성이 완료 되었습니다", Toast.LENGTH_SHORT).show();
+                                    gotoCertificationActivity();
 
                                 } else {
                                     if (task.getException() != null) {
