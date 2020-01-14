@@ -1,6 +1,5 @@
 package com.example.jmt_2;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

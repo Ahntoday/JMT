@@ -1,7 +1,6 @@
 package com.example.jmt_2;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -56,7 +55,8 @@ public class CommentAdapter extends BaseAdapter {
 
         view.setNickname(item.getNickname());
         view.setComment(item.getComment());
-        view.setImageView(item.getResId());
+        view.setImageView(item.getBitmap());
+        //view.setImageView(item.getResId());
 
         return view;
     }

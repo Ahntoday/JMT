@@ -1,6 +1,7 @@
 package com.example.jmt_2;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -35,6 +36,10 @@ public class CommentItemView extends RelativeLayout {
 
     public void setImageView(int resId) {
         imageView.setImageResource(resId);
+    }
+
+    public void setImageView(Bitmap bitmap) {
+        imageView.setImageBitmap(bitmap);
     }
 
     public void setNickname(String nickname) {

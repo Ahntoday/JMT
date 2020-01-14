@@ -1,19 +1,27 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.Design.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#484848</item>
         <item name="colorPrimaryDark">#484848</item>
         <item name="android:textColorPrimary">#000000</item>
-        <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="colorAccent">@color/colorMainGreen</item>
+        <item name="colorControlNormal">@color/colorSubBlack</item>
     </style>
 
     <style name="TabText" parent="TextAppearance.AppCompat.Medium">
         <item name="android:fontFamily">@font/scdream6</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="PopUpMenuTheme" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:textColor">@color/colorMainBlack</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/scdream5</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
 </resources>
