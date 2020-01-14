@@ -34,5 +34,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-database:19.2.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'com.github.skydoves:powermenu:2.0.6'
 }
 apply plugin: 'com.google.gms.google-services'

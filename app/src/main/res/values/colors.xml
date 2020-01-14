@@ -9,5 +9,6 @@
     <color name="colorLoginGreen">#aecc6a</color>
     <color name="colorMainBlack">#323232</color>
     <color name="colorTabTextUnselected">#d2d2d2</color>
-    <color name="colorSubBlack">#7b7b7b</color>
+    <color name="colorSubBlack">#7B7B7B</color>
+    <color name="colorTransparentBlack">#80000000</color>
 </resources>
