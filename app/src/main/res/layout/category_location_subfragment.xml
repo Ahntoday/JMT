@@ -1,13 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/location_background"
+    android:weightSum="575">
 
-    <TextView
-        android:id="@+id/textView2"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="위치별 fragment"
-        android:textSize="20sp"
-        android:gravity="center"/>
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:weightSum="360"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="180"
+            android:fontFamily="@font/scdream4"
+            android:text="지금 전남대 근처에서"
+            android:textColor="#ffffff"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="160dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:weightSum="360"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="180"
+            android:fontFamily="@font/scdream6"
+            android:text="가장 인기있는 식당들이에요 !"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="160dp"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:weightSum="360"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/scdream4"
+            android:text="인기 식당 선정 기준 : 조회순 / 리뷰순 / 좋아요순 총합 입니다."
+            android:textColor="#ffffff"
+            android:textSize="7sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_weight="75"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="110"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_weight="75"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="35"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_weight="75"
+            android:text="전철우"
+            android:textSize="14sp"
+            android:textColor="#323232"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/scdream6"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="110"/>
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_weight="75"
+            android:text="예대"
+            android:textSize="14sp"
+            android:textColor="#323232"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/scdream6"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="45"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_weight="75"
+            android:elevation="5dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="110"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_weight="75"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="35"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_weight="75"
+            android:text="상대"
+            android:textSize="14sp"
+            android:textColor="#323232"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/scdream6"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="110"/>
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_weight="75"
+            android:text="후문"
+            android:textSize="14sp"
+            android:textColor="#323232"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/scdream6"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="45"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="100"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_weight="75"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="235"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="35"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"/>
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:layout_weight="75"
+            android:text="정문"
+            android:textSize="14sp"
+            android:textColor="#323232"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_horizontal"
+            android:fontFamily="@font/scdream6"
+            android:elevation="3dp"/>
+
+        <View
+            android:layout_width="235dp"
+            android:layout_height="match_parent"
+            android:layout_weight="235"/>
+
+
+    </LinearLayout>
 </LinearLayout>

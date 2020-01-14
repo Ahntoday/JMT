@@ -15,14 +15,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class StartActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    StartOne startOne;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
-
-//        startOne = new StartOne();
-//        getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, startOne).commit();
 
 // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -84,7 +80,7 @@ public class StartActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        FirebaseUser cu = mAuth.getCurrentUser();
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
