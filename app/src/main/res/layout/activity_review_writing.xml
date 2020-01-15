@@ -1,118 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/review_writing_scrollView"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1265"
+    android:background="@color/colorWhite">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:visibility="invisible"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60"
+        android:orientation="horizontal"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/review_writing_buttonClose"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_weight="20"
+            android:background="@drawable/ic_close_15dp" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="273"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/review_writing_completeButton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="27"
+            android:background="#00000000"
+            android:fontFamily="@font/scdream6"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="완료"
+            android:textColor="#c9c9c9"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/review_writing_storeName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        android:fontFamily="@font/scdream6"
+        android:gravity="center"
+        android:text="왕손주먹구이"
+        android:textColor="#484848"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"
+        android:orientation="vertical"
+        android:weightSum="360">
+
+        <RatingBar
+            android:id="@+id/review_writing_ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:progressTint="#fcce33"
+            android:rating="4"
+            android:scrollbarSize="4dp"
+            android:stepSize="1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+    <ScrollView
+    android:id="@+id/review_writing_scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1070"
     android:fillViewport="true"
-    android:weightSum="1210">
+    android:weightSum="1070">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1210"
+        android:layout_weight="1070"
         android:background="#ffffff"
         android:focusable="true"
         android:orientation="vertical"
-        android:weightSum="1210">
+        android:weightSum="1070">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1210dp"
+            android:layout_height="1070dp"
             android:focusable="true"
             android:orientation="vertical"
-            android:weightSum="1210">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="60"
-                android:orientation="horizontal"
-                android:weightSum="360">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:visibility="invisible" />
-
-                <ImageButton
-                    android:id="@+id/buttonClose"
-                    android:layout_width="0dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="20"
-                    android:background="@drawable/ic_close_15dp" />
+            android:weightSum="1070">
 
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="273"
-                    android:visibility="invisible" />
-
-                <Button
-                    android:id="@+id/write_completeButton"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="27"
-                    android:background="#00000000"
-                    android:fontFamily="@font/scdream6"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:text="완료"
-                    android:textColor="#c9c9c9"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20"
-                    android:visibility="invisible" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="25"
-                android:fontFamily="@font/scdream6"
-                android:gravity="center"
-                android:text="왕손주먹구이"
-                android:textColor="#484848"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="60"
-                android:orientation="vertical"
-                android:weightSum="360">
-
-                <RatingBar
-                    style="@style/Widget.AppCompat.RatingBar.Indicator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:isIndicator="false"
-                    android:numStars="5"
-                    android:progressTint="#fcce33"
-                    android:rating="4"
-                    android:scrollbarSize="4dp"
-                    android:stepSize="1" />
-
-            </LinearLayout>
 
             <!--메뉴-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginLeft="20dp"
-                android:layout_weight="144"
+                android:layout_weight="149"
                 android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -133,7 +164,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/filterButton_allMenu"
+                        android:id="@+id/review_writing_filterButton_allMenu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_filter"
@@ -145,7 +176,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_koreanFood"
+                        android:id="@+id/review_writing_filterButton_koreanFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -158,7 +189,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_schoolFood"
+                        android:id="@+id/review_writing_filterButton_schoolFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -171,7 +202,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_westernFood"
+                        android:id="@+id/review_writing_filterButton_westernFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -184,7 +215,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_japaneseFood"
+                        android:id="@+id/review_writing_filterButton_japaneseFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -197,7 +228,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_chineseFood"
+                        android:id="@+id/review_writing_filterButton_chineseFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -220,7 +251,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/filterButton_chickenPizza"
+                        android:id="@+id/review_writing_filterButton_chickenPizza"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_filter"
@@ -232,7 +263,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_fastFood"
+                        android:id="@+id/review_writing_filterButton_fastFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -245,7 +276,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_cafePub"
+                        android:id="@+id/review_writing_filterButton_cafePub"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -286,7 +317,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/filterButton_allPlace"
+                        android:id="@+id/review_writing_filterButton_allPlace"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_filter"
@@ -298,7 +329,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_backGate"
+                        android:id="@+id/review_writing_filterButton_backGate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -311,7 +342,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_sangdaeGate"
+                        android:id="@+id/review_writing_filterButton_sangdaeGate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -324,7 +355,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_frontGate"
+                        android:id="@+id/review_writing_filterButton_frontGate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -337,7 +368,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_artGate"
+                        android:id="@+id/review_writing_filterButton_artGate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -360,7 +391,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/filterButton_geoncheolwooGate"
+                        android:id="@+id/review_writing_filterButton_geoncheolwooGate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_filter"
@@ -402,7 +433,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/filterButton_cheapMoney"
+                        android:id="@+id/review_writing_filterButton_cheapMoney"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_filter"
@@ -414,7 +445,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_eatAlone"
+                        android:id="@+id/review_writing_filterButton_eatAlone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -427,7 +458,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_homework"
+                        android:id="@+id/review_writing_filterButton_homework"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -440,7 +471,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_comeOutFast"
+                        android:id="@+id/review_writing_filterButton_comeOutFast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -464,7 +495,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/filterButton_atmosphere"
+                        android:id="@+id/review_writing_filterButton_atmosphere"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_filter"
@@ -476,7 +507,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_teamProject"
+                        android:id="@+id/review_writing_filterButton_teamProject"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -489,7 +520,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_comeAgain"
+                        android:id="@+id/review_writing_filterButton_comeAgain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -502,7 +533,7 @@
                         android:textSize="13sp" />
 
                     <Button
-                        android:id="@+id/filterButton_diningTogether"
+                        android:id="@+id/review_writing_filterButton_diningTogether"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -526,7 +557,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/filterButton_badPlace"
+                        android:id="@+id/review_writing_filterButton_badPlace"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_filter"
@@ -565,7 +596,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/review_writing_menu_eaten_editText"
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
                     android:layout_marginTop="10dp"
@@ -677,3 +708,4 @@
 
     </LinearLayout>
 </ScrollView>
+</LinearLayout>
