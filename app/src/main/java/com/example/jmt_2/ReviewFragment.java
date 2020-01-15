@@ -23,11 +23,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-
 import com.google.android.material.tabs.TabLayout;
-import com.skydoves.powermenu.MenuAnimation;
 import com.skydoves.powermenu.OnMenuItemClickListener;
 import com.skydoves.powermenu.PowerMenu;
 import com.skydoves.powermenu.PowerMenuItem;
@@ -35,7 +31,6 @@ import com.skydoves.powermenu.PowerMenuItem;
 public class ReviewFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    ReviewRecentSubFragment reviewRecentSubFragment;
     ReviewTabPagerAdaptor pagerAdaptor;
 
     public ReviewFragment() {
