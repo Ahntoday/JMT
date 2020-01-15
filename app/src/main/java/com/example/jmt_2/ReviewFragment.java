@@ -126,7 +126,7 @@ public class ReviewFragment extends Fragment {
     }
 
     private void gotoReviewWritingActivity() {
-        Intent intent = new Intent(this.getActivity(), ReviewWritingActivity.class);
+        Intent intent = new Intent(this.getActivity(), ReviewStartActivity.class);
         startActivity(intent);
     }
 

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="515dp"
+    android:orientation="vertical"
+    android:weightSum="515">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="150"
+        android:orientation="horizontal"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/situation_imageView1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="150" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:id="@+id/situation_imageView2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="150" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="32"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="150"
+            android:fontFamily="@font/scdream5"
+            android:foregroundGravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="가게명"
+            android:textColor="#323232"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_weight="150"
+            android:fontFamily="@font/scdream5"
+            android:gravity="center_vertical"
+            android:text="가게명"
+            android:textColor="#323232"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="18"
+        android:orientation="horizontal"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center"
+            android:layout_weight="12"
+            android:background="@drawable/location" />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_weight="18"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center"
+            android:text="위치"
+            android:textColor="#7b7b7b"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="120"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center|left"
+            android:text="대표메뉴"
+            android:textColor="#7b7b7b"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center"
+            android:layout_weight="12"
+            android:background="@drawable/location" />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_weight="18"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center"
+            android:text="위치"
+            android:textColor="#7b7b7b"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="120"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center_vertical"
+            android:text="대표메뉴"
+            android:textColor="#7b7b7b"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_weight="16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="150"
+        android:orientation="horizontal"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/situation_imageView3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="150" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:id="@+id/situation_imageView4"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="150" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="32"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="150"
+            android:fontFamily="@font/scdream5"
+            android:foregroundGravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="가게명"
+            android:textColor="#323232"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_weight="150"
+            android:fontFamily="@font/scdream5"
+            android:gravity="center_vertical"
+            android:text="가게명"
+            android:textColor="#323232"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="18"
+        android:orientation="horizontal"
+        android:weightSum="360">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center"
+            android:layout_weight="12"
+            android:background="@drawable/location" />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_weight="18"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center"
+            android:text="위치"
+            android:textColor="#7b7b7b"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="120"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center|left"
+            android:text="대표메뉴"
+            android:textColor="#7b7b7b"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="13dp"
+            android:layout_gravity="center"
+            android:layout_weight="12"
+            android:background="@drawable/location" />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_weight="18"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center"
+            android:text="위치"
+            android:textColor="#7b7b7b"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_weight="120"
+            android:fontFamily="@font/scdream4"
+            android:gravity="center_vertical"
+            android:text="대표메뉴"
+            android:textColor="#7b7b7b"
+            android:textSize="10sp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
