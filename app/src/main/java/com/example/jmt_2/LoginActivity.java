@@ -1,5 +1,6 @@
 package com.example.jmt_2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +36,7 @@ public class LoginActivity<user> extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if(user != null){
+        if (user != null) {
             //회원가입 or 로그인
             for (UserInfo profile : user.getProviderData()) {
                 // Name, email address, and profile photo Url
@@ -62,7 +63,6 @@ public class LoginActivity<user> extends AppCompatActivity {
                     gotoSignupActivity();
                     break;
                 case R.id.gotoStartButton:
-                    Log.e("test","buttonclick");
                     gotoStartActivity();
                     break;
             }
@@ -81,7 +81,7 @@ public class LoginActivity<user> extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("전맛탱 로그인에 성공하였습니다");
-                                gotoStartActivity();
+                                gotoMainActivity();
                             } else {
                                 if (task.getException() != null) {
                                     startToast(task.getException().toString());
@@ -102,10 +102,11 @@ public class LoginActivity<user> extends AppCompatActivity {
     private void gotoSignupActivity() {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void gotoStartActivity() {
-        Log.e("test","buttowon");
+        Log.e("test", "buttowon");
         Intent intent = new Intent(this, StartActivity.class);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -113,8 +114,10 @@ public class LoginActivity<user> extends AppCompatActivity {
     }
 
 
-    private void startLoginActivity() {
-        Intent intent = new Intent(this, LoginActivity.class);
+    private void gotoMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
     }
 }

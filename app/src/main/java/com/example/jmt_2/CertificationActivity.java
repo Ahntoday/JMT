@@ -71,7 +71,6 @@ public class CertificationActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-
             }
         });
 
@@ -85,9 +84,6 @@ public class CertificationActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(CertificationActivity.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
         }
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-
         findViewById(R.id.backButton).setOnClickListener(onClickListener);
         findViewById(R.id.nextButton).setOnClickListener(onClickListener);
         findViewById(R.id.addCamera).setOnClickListener(onClickListener);

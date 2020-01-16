@@ -1,16 +1,56 @@
 package com.example.jmt_2;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class ReviewWritingActivity extends AppCompatActivity {
+    TextView textView;
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private FirebaseStorage firebaseStorage;
+    private FirebaseUser user;
+    private Uri photoUri;
+    private String imageFilePath;
+    private Bitmap bitmap;
+    private final int GET_GALLERY_IMAGE = 200;
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+
 
     Button buttonsMenu[] = new Button[9];
     Button buttonsPlace[] = new Button[6];
@@ -22,12 +62,30 @@ public class ReviewWritingActivity extends AppCompatActivity {
 
     Button buttonComplete;
     ImageButton buttonClose;
+    Button addCamera;
+    ImageView imageView;
+
+    int tagPlace;
+    int tagMenu;
+    int tagKeyword;
+    String storeName;
+    String nickName;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_writing);
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        database = FirebaseDatabase.getInstance();
+
+        imageView = (ImageView) findViewById(R.id.imageView);
+
+        textView = (TextView) findViewById(R.id.review_writing_storeName);
+        storeName = getIntent().getStringExtra("storeName") + "";
+        textView.setText(storeName);
 
         buttonsMenu[0] = (Button) findViewById(R.id.review_writing_filterButton_allMenu);
         buttonsMenu[1] = (Button) findViewById(R.id.review_writing_filterButton_koreanFood);
@@ -55,6 +113,7 @@ public class ReviewWritingActivity extends AppCompatActivity {
         buttonsKeyword[6] = (Button) findViewById(R.id.review_writing_filterButton_comeAgain);
         buttonsKeyword[7] = (Button) findViewById(R.id.review_writing_filterButton_diningTogether);
         buttonsKeyword[8] = (Button) findViewById(R.id.review_writing_filterButton_badPlace);
+
 
         for (int i = 0; i < buttonsMenuState.length; i++) {
             buttonsMenuState[i] = false;
@@ -99,6 +158,8 @@ public class ReviewWritingActivity extends AppCompatActivity {
                                 buttonsMenuState[position] = true;
                             }
                         }
+
+                        tagMenu = position;
                     }
                 }
             });
@@ -123,6 +184,7 @@ public class ReviewWritingActivity extends AppCompatActivity {
                                 buttonsPlaceState[position] = true;
                             }
                         }
+                        tagPlace = position;
                     }
                 }
             });
@@ -147,6 +209,7 @@ public class ReviewWritingActivity extends AppCompatActivity {
                                 buttonsKeywordState[position] = true;
                             }
                         }
+                        tagKeyword = position;
                     }
                 }
             });
@@ -155,6 +218,7 @@ public class ReviewWritingActivity extends AppCompatActivity {
         buttonComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (buttonComplete.getCurrentTextColor() == getResources().getColor(R.color.colorWhite)) {
                     setButtonCompleteUnselected();
                 } else {
@@ -170,11 +234,45 @@ public class ReviewWritingActivity extends AppCompatActivity {
                 } else if (checkAllButtonUnselected(buttonsKeywordState)) {
                     setButtonCompleteUnselected();
                     makeToast();
-                }
+                } else if (imageView.getResources() == null) {
+                    makePhotoToast();
+                } else {
+                    String cu = mAuth.getUid();
 
+
+                    if (tagPlace == 0 && tagMenu == 0) {
+                        database.getReference().child("jmtMarket").child("menus").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("locations").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("keywords").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                    } else if (tagPlace == 0) {
+                        database.getReference().child("jmtMarket").child("menus").child("0").child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("menus").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("locations").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("keywords").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                    } else if (tagMenu == 0) {
+                        database.getReference().child("jmtMarket").child("menus").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("locations").child("0").child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("locations").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("keywords").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                    } else {
+                        database.getReference().child("jmtMarket").child("menus").child("0").child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("menus").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("locations").child("0").child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("locations").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                        database.getReference().child("jmtMarket").child("keywords").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
+                    }
+//                    database.getReference().child("users").child(cu).child("review").setValue();
+
+                    upload();
+                    gotoMainActivity();
+
+
+                }
             }
         });
 
+        addCamera = findViewById(R.id.addCamera);
+        addCamera.setOnClickListener(onClickListener);
 
 
     }
@@ -195,7 +293,7 @@ public class ReviewWritingActivity extends AppCompatActivity {
         buttonComplete.setTextColor(getResources().getColor(R.color.colorWhite));
     }
 
-    private  void setButtonCompleteUnselected() {
+    private void setButtonCompleteUnselected() {
         buttonComplete.setBackgroundResource(R.drawable.button_select_complete);
         buttonComplete.setTextColor(getResources().getColor(R.color.colorUnSelectedText));
     }
@@ -219,7 +317,143 @@ public class ReviewWritingActivity extends AppCompatActivity {
         Toast.makeText(this, "앗! 선택되지 않은 정보가 있어요!", Toast.LENGTH_SHORT).show();
     }
 
+    private void makePhotoToast() {
+        Toast.makeText(this, "사진을 선택해주세요", Toast.LENGTH_SHORT).show();
+    }
 
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.addCamera:
+                    sendTakePhotoIntent();
+                    Intent intent = new Intent(Intent.ACTION_PICK);
+                    intent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                    startActivityForResult(intent, GET_GALLERY_IMAGE);
+            }
+        }
+    };
+
+    private void sendTakePhotoIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+
+            if (photoFile != null) {
+                photoUri = FileProvider.getUriForFile(this, getPackageName(), photoFile);
+
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            }
+        }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            bitmap = BitmapFactory.decodeFile(imageFilePath);
+            ExifInterface exif = null;
+
+            try {
+                exif = new ExifInterface(imageFilePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            int exifOrientation;
+            int exifDegree;
+
+            if (exif != null) {
+                exifOrientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+                exifDegree = exifOrientationToDegrees(exifOrientation);
+            } else {
+                exifDegree = 0;
+            }
+
+            imageView.setImageBitmap(rotate(bitmap, exifDegree));
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "TEST_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,      /* prefix */
+                ".jpg",         /* suffix */
+                storageDir          /* directory */
+        );
+        imageFilePath = image.getAbsolutePath();
+        return image;
+    }
+
+    private int exifOrientationToDegrees(int exifOrientation) {
+        if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_90) {
+            return 90;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_180) {
+            return 180;
+        } else if (exifOrientation == ExifInterface.ORIENTATION_ROTATE_270) {
+            return 270;
+        }
+        return 0;
+    }
+
+    private Bitmap rotate(Bitmap bitmap, float degree) {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(degree);
+        return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+    }
+
+    private void uploadUserInfo(Uri imagePath) {
+
+    }
+
+
+    private void upload() {
+        firebaseStorage = FirebaseStorage.getInstance();
+        final StorageReference storageRef = firebaseStorage.getReferenceFromUrl("gs://jmt-project-e3de3.appspot.com").child(user.getUid());
+        imageView.setDrawingCacheEnabled(true);
+        imageView.buildDrawingCache();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+        UploadTask uploadTask = storageRef.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                makePhotoToast();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+                Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+                while (!urlTask.isSuccessful()) ;
+                Uri url = urlTask.getResult();
+                uploadUserInfo(url);
+            }
+        });
+
+    }
+
+    private void block() {
+
+    }
+
+    private void gotoMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        //onAttachFragment(new ReviewFragment());
+        finish();
+    }
 
 
 }

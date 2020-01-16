@@ -27,7 +27,7 @@ public class StartActivity extends AppCompatActivity {
         findViewById(R.id.gotoStartButton).setOnClickListener(onClickListener);
 
         mAuth = FirebaseAuth.getInstance();
-        mAuth.signOut();
+
 
         if (mAuth.getCurrentUser() != null) {
             gotoMainActivity();

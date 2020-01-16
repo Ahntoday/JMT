@@ -9,11 +9,19 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -26,6 +34,12 @@ public class HomeFragment extends Fragment {
     private Button filterButton;
     private TextView textView;
     private TextView textView2;
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private FirebaseStorage firebaseStorage;
+    String menuHash[] = {"#전체", "#한식", "#분식", "#양식", "#일식", "#중식", "#치킨&피자", "#패스트푸드", "#카페&주점"};
+    String keywordHash[] = {"#가성비", "#혼밥", "#과제", "#빨리나오는", "#분위기", "#팀플", "#또오고싶은", "#회식", "#여기별로임"};
+
 
     @Nullable
     @Override
@@ -42,9 +56,131 @@ public class HomeFragment extends Fragment {
         adapter = new RecyclerviewAdaptor(cardData);
         recyclerView.setAdapter(adapter);
 
-        cardData.add(new CardData("길성유부", "#분식 #가성비", R.drawable.gilsung));
-        cardData.add(new CardData("돈부리 가게", "#일식 #가성비", R.drawable.donburi));
-        cardData.add(new CardData("대왕 김밥", "#분식 #또오고싶은", R.drawable.dawang));
+        mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+
+        String tagMenu = getActivity().getIntent().getStringExtra("tagMenu");
+        String tagPlace = getActivity().getIntent().getStringExtra("tagPlace");
+        String tagKeyword = getActivity().getIntent().getStringExtra("tagKeyword");
+
+        if (tagMenu == null) {
+            cardData.add(new CardData("길성유부", "#후문 #분식 #가성비", R.drawable.gilsung));
+            cardData.add(new CardData("맛골", "#예대 #한식 #또오고싶은", R.drawable.hj_matgol));
+            cardData.add(new CardData("예향정", "#후문 #한식 #분위기", R.drawable.usa_yehyangjeong));
+            cardData.add(new CardData("대왕김밥", "#정문 #분식 #또오고싶은", R.drawable.dawang));
+            cardData.add(new CardData("돈부리가게", "#상대 #일식 #가성비", R.drawable.donburi));
+        } else {
+            Log.e("tagMenu", tagMenu+"");
+            Log.e("tagPlace", tagPlace+"");
+
+            final ArrayList<String> dataPlace = new ArrayList<>();
+            final ArrayList<String> dataFinal = new ArrayList<>();
+
+            database.getReference().child("jmtMarket").child("locations").child(tagPlace).addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    dataPlace.add(dataSnapshot.getKey());
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            database.getReference().child("jmtMarket").child("menus").child(tagMenu).addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    for (String name : dataPlace) {
+                        if (name.equals(dataSnapshot.getKey())) {
+                            dataFinal.add(name);
+                            break;
+                        }
+                    }
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+            database.getReference().child("jmtMarket").child("stores").addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                    for (String name : dataFinal) {
+                        if (name.equals(dataSnapshot.getKey())) {
+                            String finalMenuTag = dataSnapshot.child("menu").getValue().toString();
+                            String finalKeywordTag = dataSnapshot.child("keyword").getValue().toString();
+
+                            char[] tag = finalMenuTag.toCharArray();
+                            String res = menuHash[Integer.parseInt(String.valueOf((tag[tag.length-1])))];
+                            Log.e("dataFinal", res+"");
+                            char[] tag1 = finalKeywordTag.toCharArray();
+                            String res1 = keywordHash[Integer.parseInt(String.valueOf(tag1[tag1.length-1]))];
+                            Log.e("dataFinal", res1+"");
+
+                            cardData.add(new CardData(name, res+" "+res1, R.drawable.gilsung));
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+
+
 
         recyclerView.addItemDecoration(new CardItemDecoration(getContext(), 20));
 
@@ -90,6 +226,8 @@ public class HomeFragment extends Fragment {
 
         String textFilterButton = "#" + textView.getText().toString() + " #" + textMenu + " #" + textKeyword;
         filterButton.setText(textFilterButton);
+
+
 
         return view;
     }
