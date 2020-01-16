@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.Image;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -82,6 +84,20 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
 
             }
         });
+
+        holder.saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageButton button = (ImageButton) v;
+
+                if (button.getBackground() == v.getResources().getDrawable(R.drawable.ic_save_18dp)) {
+                    button.setBackground(v.getResources().getDrawable(R.drawable.ic_save_selected_18dp));
+                } else {
+                    button.setBackground(v.getResources().getDrawable(R.drawable.ic_save_18dp));
+                }
+
+            }
+        });
     }
 
 
@@ -105,7 +121,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
         private FirebaseAuth mAuth;
         private FirebaseDatabase database;
         private FirebaseUser user;
-
+        public ImageButton saveButton;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -122,7 +138,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
             listView = (ListView) itemView.findViewById(R.id.comment_listView);
             listView.setVerticalScrollBarEnabled(false);
             likeButton = (ImageButton) itemView.findViewById(R.id.like_button);
-
+            saveButton = (ImageButton) itemView.findViewById(R.id.save_button);
             likeCount.setText("0");
 
             mAuth = FirebaseAuth.getInstance();
@@ -188,13 +204,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
                     }
                     return false;
                 }
-
             });
-
-
-
-
-
         }
     }
 
@@ -230,6 +240,7 @@ class ReviewData {
     public String nickName;
     public String storeName;
     public String location;
+    public String storeNameLocation;
     public String reviewContent;
     public int numStar;
     public int userImg;

@@ -32,6 +32,7 @@
         <activity android:name=".PopUpActivity"
             android:theme="@android:style/Theme.Dialog"></activity>
         <activity android:name=".FilteringActivity"></activity>
+        <activity android:name=".CategoryLocationListActivity"></activity>
         <activity android:name=".ReviewWritingActivity"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".CertificationActivity"></activity>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:weightSum="360"
+    android:layout_marginBottom="20dp"
+    android:layout_marginTop="20dp">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="20"/>
+
+    <ImageView
+        android:id="@+id/location_list_imageView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="90" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="20"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="195"
+        android:orientation="vertical"
+        android:weightSum="90">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10" />
+
+        <TextView
+            android:id="@+id/location_list_storeName"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="20"
+            android:fontFamily="@font/scdream5"
+            android:text="가게명"
+            android:textColor="#212121"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="11dp"
+            android:layout_gravity="center"
+            android:layout_weight="20"
+            android:orientation="horizontal">
+
+            <RatingBar
+                android:id="@+id/location_list_ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:numStars="5"
+                android:progressTint="@color/colorMainGreen"
+                android:rating="3"
+                android:stepSize="1" />
+
+            <TextView
+                android:id="@+id/location_list_reviewNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="리뷰 0개"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_location_10dp" />
+
+            <TextView
+                android:id="@+id/location_list_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/scdream4"
+                android:text="위치"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/location_list_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/scdream4"
+                android:text="메뉴"
+                android:textColor="#999999"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10" />
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/location_list_save_store"
+        android:layout_width="0dp"
+        android:layout_height="18dp"
+        android:layout_gravity="center"
+        android:layout_weight="20"
+        android:background="@drawable/ic_save_18dp" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="15" />
+
+
+</LinearLayout>
