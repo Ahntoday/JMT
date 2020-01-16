@@ -3,14 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="640">
+    android:weightSum="640"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="60"
         android:orientation="horizontal"
-        android:weightSum="360">
+        android:weightSum="360"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <View
             android:layout_width="20dp"
@@ -39,11 +43,12 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="280"
             android:background="@drawable/review_searchtext_style"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
+            android:fontFamily="@font/scdream4"
+            android:hint="   리뷰 쓸 식당을 입력해 주세요 !"
             android:inputType="textShortMessage"
             android:maxLines="1"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textSize="12sp" />
 
         <View
             android:layout_width="32dp"
@@ -62,11 +67,11 @@
             android:layout_height="match_parent" />
 
         <TextView
+            android:id="@+id/pleaseSelect"
             android:layout_width="340dp"
             android:layout_height="match_parent"
             android:fontFamily="@font/scdream6"
             android:gravity="center_vertical"
-            android:text="리뷰 쓸 식당을 선택해 주세요 !"
             android:textColor="#212121"
             android:textSize="12sp" />
 

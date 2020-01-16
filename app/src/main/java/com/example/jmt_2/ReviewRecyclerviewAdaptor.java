@@ -1,5 +1,7 @@
 package com.example.jmt_2;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
@@ -18,7 +20,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -43,7 +53,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int i) {
 
         holder.textNickName.setText(reviewData.get(i).nickName);
-        holder.storeInfo.setText(reviewData.get(i).storeNameLocation);
+        holder.storeInfo.setText(reviewData.get(i).storeName+", "+reviewData.get(i).location);
         holder.reviewContent.setText(reviewData.get(i).reviewContent);
         holder.userImage.setImageResource(reviewData.get(i).userImg);
         holder.foodImage.setImageResource(reviewData.get(i).reviewImg);
@@ -92,6 +102,10 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
         public ImageView commentImage;
         public TextView commentNickname;
         public ImageButton likeButton;
+        private FirebaseAuth mAuth;
+        private FirebaseDatabase database;
+        private FirebaseUser user;
+
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -110,7 +124,34 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
             likeButton = (ImageButton) itemView.findViewById(R.id.like_button);
 
             likeCount.setText("0");
-            commentNickname.setText("날아라슈퍼맨");
+
+            mAuth = FirebaseAuth.getInstance();
+            user = mAuth.getCurrentUser();
+            database = FirebaseDatabase.getInstance();
+
+            String cu = mAuth.getUid();
+
+            if (cu != null) {
+                database.getReference().child("users").child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        commentNickname.setText(dataSnapshot.getValue(UserData.class).getUserName());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+
+                    }
+                });
+
+            } else {
+                commentNickname.setText("익명");
+                editText.setHint("♥로그인시 댓글을 달 수 있어욧!♥");
+                editText.setFocusable(false);
+                editText.setClickable(false);
+            }
+
             commentImage.setImageResource(R.drawable.userimage);
 
             editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -120,6 +161,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
                     if (actionId == EditorInfo.IME_ACTION_DONE || event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
                         String comment = editText.getText().toString();
                         InputMethodManager inputMethodManager = (InputMethodManager) itemView.getContext().getSystemService(MainActivity.INPUT_METHOD_SERVICE);
+
                         if (comment.trim().getBytes().length <= 0) {
                             Toast.makeText(itemView.getContext(), "댓글을 입력해주세요!", Toast.LENGTH_SHORT).show();
                             inputMethodManager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
@@ -128,6 +170,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
 
                             return false;
                         }
+
                         CommentAdapter commentAdapter = (CommentAdapter) listView.getAdapter();
 
                         BitmapDrawable bitmapDrawable = (BitmapDrawable) commentImage.getDrawable();
@@ -180,20 +223,24 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
+
 }
 
 class ReviewData {
     public String nickName;
-    public String storeNameLocation;
+    public String storeName;
+    public String location;
     public String reviewContent;
+    public int numStar;
     public int userImg;
     public int reviewImg;
     private int likeCount = 0;
     private ArrayList<CommentItem> items;
 
-    public ReviewData (String nickName, String storeNameLocation, String reviewContent, int userImg, int reviewImg, ArrayList<CommentItem> items) {
+    public ReviewData (String nickName, String storeName, String location, String reviewContent, int userImg, int reviewImg, ArrayList<CommentItem> items) {
         this.nickName = nickName;
-        this.storeNameLocation = storeNameLocation;
+        this.storeName = storeName;
+        this.location = location;
         this.userImg = userImg;
         this.reviewImg = reviewImg;
         this.reviewContent = reviewContent;
@@ -209,12 +256,28 @@ class ReviewData {
         this.nickName = nickName;
     }
 
-    public String getStoreNameLocation() {
-        return storeNameLocation;
+    public String getStoreName() {
+        return storeName;
     }
 
-    public void setStoreNameLocation(String storeNameLocation) {
-        this.storeNameLocation = storeNameLocation;
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getNumStar() {
+        return numStar;
+    }
+
+    public void setNumStar(int numStar) {
+        this.numStar = numStar;
     }
 
     public String getReviewContent() {

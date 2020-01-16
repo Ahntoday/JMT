@@ -22,6 +22,7 @@ public class SituationRecyclerviewAdaptor extends RecyclerView.Adapter<Situation
     private Context context;
 
     private SparseBooleanArray mSelectedItems = new SparseBooleanArray(0);
+
     public SituationRecyclerviewAdaptor(Context context, ArrayList<SituationItemData> situationItemData) {
         this.context = context;
         this.situationItemData = situationItemData;
@@ -32,6 +33,7 @@ public class SituationRecyclerviewAdaptor extends RecyclerView.Adapter<Situation
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.situation_item_view, parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -40,15 +42,17 @@ public class SituationRecyclerviewAdaptor extends RecyclerView.Adapter<Situation
         holder.button.setText(situationItemData.get(position).situation);
         holder.button.setTag(position);
 
-//        holder.button.setSelected(isItemSelected(position));
+        if (position == 0) {
+            holder.button.setSelected(true);
+        }
+
         if(mSelectedItems.get(position, false)){
             holder.button.setBackgroundResource(R.drawable.button_select_complete_selected);
             holder.button.setBackgroundColor(context.getResources().getColor(R.color.colorMainGreen));
             holder.button.setTextColor(context.getResources().getColor(R.color.colorWhite));
-        }else{
+        } else {
             holder.button.setBackgroundResource(R.drawable.button_filter_selected);
             holder.button.setTextColor(context.getResources().getColor(R.color.colorMainGreen));
-
         }
     }
 

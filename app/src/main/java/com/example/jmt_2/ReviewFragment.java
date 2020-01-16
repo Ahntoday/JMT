@@ -24,6 +24,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.skydoves.powermenu.OnMenuItemClickListener;
 import com.skydoves.powermenu.PowerMenu;
 import com.skydoves.powermenu.PowerMenuItem;
@@ -32,6 +38,10 @@ public class ReviewFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     ReviewTabPagerAdaptor pagerAdaptor;
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase database;
+    private FirebaseUser user;
+
 
     public ReviewFragment() {
     }
@@ -76,7 +86,18 @@ public class ReviewFragment extends Fragment {
                     public void onItemClick(int position, PowerMenuItem item) {
                         switch (position) {
                             case 0:
-                                gotoReviewWritingActivity();
+                                mAuth = FirebaseAuth.getInstance();
+                                user = mAuth.getCurrentUser();
+                                database = FirebaseDatabase.getInstance();
+
+                                String cu = mAuth.getUid();
+
+                                if (cu != null) {
+                                    gotoReviewStartActivity();
+                                } else {
+                                    gotoLoginActivity();
+                                }
+
                                 powerMenu.dismiss();
                                 break;
                         }
@@ -120,8 +141,13 @@ public class ReviewFragment extends Fragment {
         return view;
     }
 
-    private void gotoReviewWritingActivity() {
+    private void gotoReviewStartActivity() {
         Intent intent = new Intent(this.getActivity(), ReviewStartActivity.class);
+        startActivity(intent);
+    }
+
+    public void gotoLoginActivity() {
+        Intent intent = new Intent(this.getActivity(), LoginActivity.class);
         startActivity(intent);
     }
 

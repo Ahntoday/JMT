@@ -46,6 +46,7 @@ public class CategorySituationSubFragment extends Fragment {
         situationItemData.add(new SituationItemData("# 해장하기 좋은", Code.ViewType.CONTENT_TWO));
         situationItemData.add(new SituationItemData("# 어색한 사이일 때", Code.ViewType.CONTENT_THREE));
 
+        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.situation_frameLayout, new SituationOne()).commit();
 
         return view;
     }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="515dp"
+    android:layout_height="416dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:weightSum="515">
+    android:weightSum="416">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="150"
+        android:layout_weight="145"
         android:orientation="horizontal"
         android:weightSum="360">
 
@@ -17,24 +17,30 @@
             android:layout_width="20dp"
             android:layout_height="match_parent" />
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/situation_imageView1"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="bottom"
-            android:layout_weight="150" />
+            android:layout_weight="150"
+            android:src="@drawable/usa_yehyangjeong"
+            app:riv_corner_radius="10dp"
+            android:scaleType="centerCrop"/>
 
         <View
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:layout_weight="20" />
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/situation_imageView2"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="bottom"
-            android:layout_weight="150" />
+            android:layout_weight="150"
+            android:scaleType="centerCrop"
+            android:src="@drawable/usa_mitarie"
+            app:riv_corner_radius="10dp"/>
 
         <View
             android:layout_width="20dp"
@@ -45,7 +51,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="32"
+        android:layout_weight="28"
         android:orientation="horizontal">
 
         <View
@@ -61,7 +67,7 @@
             android:fontFamily="@font/scdream5"
             android:foregroundGravity="center_vertical"
             android:gravity="center_vertical"
-            android:text="가게명"
+            android:text="예향정"
             android:textColor="#323232"
             android:textSize="14sp" />
 
@@ -76,7 +82,7 @@
             android:layout_weight="150"
             android:fontFamily="@font/scdream5"
             android:gravity="center_vertical"
-            android:text="가게명"
+            android:text="미태리"
             android:textColor="#323232"
             android:textSize="14sp" />
 
@@ -90,7 +96,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="18"
+        android:layout_weight="22"
         android:orientation="horizontal"
         android:weightSum="360">
 
@@ -112,7 +118,7 @@
             android:layout_weight="18"
             android:fontFamily="@font/scdream4"
             android:gravity="center"
-            android:text="위치"
+            android:text="후문"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -122,7 +128,7 @@
             android:layout_weight="120"
             android:fontFamily="@font/scdream4"
             android:gravity="center|left"
-            android:text="대표메뉴"
+            android:text="두루치기 쌈싸머겅"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -144,7 +150,7 @@
             android:layout_weight="18"
             android:fontFamily="@font/scdream4"
             android:gravity="center"
-            android:text="위치"
+            android:text="후문"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -154,7 +160,7 @@
             android:layout_weight="120"
             android:fontFamily="@font/scdream4"
             android:gravity="center_vertical"
-            android:text="대표메뉴"
+            android:text="가격이 괜찮은 파스타!"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -168,13 +174,13 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="16dp"
-        android:layout_weight="16" />
+        android:layout_height="0dp"
+        android:layout_weight="8" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="150"
+        android:layout_weight="145"
         android:orientation="horizontal"
         android:weightSum="360">
 
@@ -182,26 +188,31 @@
             android:layout_width="20dp"
             android:layout_height="match_parent" />
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/situation_imageView3"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="bottom"
-            android:layout_weight="150" />
+            android:layout_weight="150"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="10dp"
+            android:src="@drawable/usa_jeondaebeolsik"/>
 
         <View
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:layout_weight="20" />
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/situation_imageView4"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="bottom"
             android:layout_weight="150"
             android:background="@drawable/donburi"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/usa_italybanjeom"
+            app:riv_corner_radius="10dp"/>
 
         <View
             android:layout_width="20dp"
@@ -212,7 +223,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="32"
+        android:layout_weight="28"
         android:orientation="horizontal">
 
         <View
@@ -257,7 +268,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="18"
+        android:layout_weight="22"
         android:orientation="horizontal"
         android:weightSum="360">
 
@@ -279,7 +290,7 @@
             android:layout_weight="18"
             android:fontFamily="@font/scdream4"
             android:gravity="center"
-            android:text="위치"
+            android:text="후문"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -289,7 +300,7 @@
             android:layout_weight="120"
             android:fontFamily="@font/scdream4"
             android:gravity="center|left"
-            android:text="대표메뉴"
+            android:text="연어초밥 불초밥 마시쩡"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -311,7 +322,7 @@
             android:layout_weight="18"
             android:fontFamily="@font/scdream4"
             android:gravity="center"
-            android:text="위치"
+            android:text="후문"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -321,7 +332,7 @@
             android:layout_weight="120"
             android:fontFamily="@font/scdream4"
             android:gravity="center_vertical"
-            android:text="대표메뉴"
+            android:text="크림짬뽕 쫀맛탱"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -329,8 +340,10 @@
             android:layout_width="20dp"
             android:layout_height="match_parent"
             android:layout_weight="20" />
-
-
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10" />
 
 </LinearLayout>

@@ -44,10 +44,10 @@ public class ReviewRecentSubFragment extends Fragment {
         commentItems.add(new CommentItem("나는야뀨", "마자ㅠㅠ 카츠 진짜 맛잇어용!", R.drawable.userimage));
         commentItems1.add(new CommentItem("찌은", "라볶이도 맛있음!!", R.drawable.userimage));
 
-        reviewData.add(new ReviewData("서진쓰", "돈부리 가게, 상대", "솔직히 카츠 이 가격에 이 양이라니,,,, 감격,,,", R.drawable.temp_user_image_27dp, R.drawable.donburi, commentItems));
-        reviewData.add(new ReviewData("나는야뀨", "대왕김밥, 정문", "돈까스 파삭파삭 존맛탱", R.drawable.temp_user_image_27dp, R.drawable.dawang, commentItems1));
-        reviewData.add(new ReviewData("찌은", "길성유부, 후문", "가성비 갑!! 김치유부, 참치유부 다 맛있어유ㅠㅠ", R.drawable.temp_user_image_27dp, R.drawable.gilsung, commentItems2));
-        reviewData.add(new ReviewData("서진쓰", "돈부리 가게, 상대", "솔직히 카츠 이 가격에 이 양이라니,,,, 감격,,,", R.drawable.temp_user_image_27dp, R.drawable.donburi, commentItems));
+        reviewData.add(new ReviewData("서진쓰", "돈부리 가게", "상대", "솔직히 카츠 이 가격에 이 양이라니,,,, 감격,,,", R.drawable.temp_user_image_27dp, R.drawable.donburi, commentItems));
+        reviewData.add(new ReviewData("나는야뀨", "대왕김밥", "정문", "돈까스 파삭파삭 존맛탱", R.drawable.temp_user_image_27dp, R.drawable.dawang, commentItems1));
+        reviewData.add(new ReviewData("찌은", "길성유부", "후문", "가성비 갑!! 김치유부, 참치유부 다 맛있어유ㅠㅠ", R.drawable.temp_user_image_27dp, R.drawable.gilsung, commentItems2));
+        reviewData.add(new ReviewData("서진쓰", "돈부리 가게", "상대", "솔직히 카츠 이 가격에 이 양이라니,,,, 감격,,,", R.drawable.temp_user_image_27dp, R.drawable.donburi, commentItems));
         
         return view;
     }

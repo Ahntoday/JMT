@@ -11,12 +11,12 @@
         android:id="@+id/situation_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_filter_selected"
+        android:background="@drawable/drawable_situation_recyclerview_button"
         android:text="# 기념일에 가기 좋은"
         android:fontFamily="@font/scdream5"
         android:textSize="13sp"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:textColor="@color/colorMainGreen"/>
+        android:textColor="@color/colorMainGreen" />
 
 </LinearLayout>

@@ -93,7 +93,7 @@
             android:isIndicator="false"
             android:numStars="5"
             android:progressTint="#fcce33"
-            android:rating="4"
+            android:rating="0"
             android:scrollbarSize="4dp"
             android:stepSize="1" />
 
@@ -686,6 +686,7 @@
                         android:layout_weight="20" />
 
                     <ImageView
+                        android:id="@+id/imageView"
                         android:layout_width="280dp"
                         android:layout_height="210dp"
                         android:layout_gravity="center"
