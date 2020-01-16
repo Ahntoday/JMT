@@ -30,9 +30,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setItemIconTintList(null);
 
 
-
-
-
     }
 
     class NavigationSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener {

@@ -30,6 +30,10 @@ public class FilteringActivity extends AppCompatActivity {
     String textMenuMent;
     String textKeyword;
 
+    int tagPlace;
+    int tagMenu;
+    int tagKeyword;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +111,7 @@ public class FilteringActivity extends AppCompatActivity {
                         }
                         textMenu = buttonsMenu[position].getText().toString();
                         textMenuMent = menuMent[position];
+                        tagMenu = position;
                     }
                 }
             });
@@ -137,6 +142,7 @@ public class FilteringActivity extends AppCompatActivity {
                     } else {
                         textPlace = buttonsPlace[position].getText().toString();
                     }
+                    tagPlace = position;
 
                 }
             });
@@ -163,6 +169,7 @@ public class FilteringActivity extends AppCompatActivity {
                         }
                     }
                     textKeyword = buttonsKeyword[position].getText().toString();
+                    tagKeyword = position;
                 }
             });
         }
@@ -203,6 +210,9 @@ public class FilteringActivity extends AppCompatActivity {
         intent.putExtra("textMenu", textMenu);
         intent.putExtra("textMenuMent", textMenuMent);
         intent.putExtra("textKeyword", textKeyword);
+        intent.putExtra("tagPlace", Integer.toString(tagPlace));
+        intent.putExtra("tagMenu", Integer.toString(tagMenu));
+        intent.putExtra("tagKeyword", Integer.toString(tagKeyword));
         startActivity(intent);
     }
 

@@ -11,8 +11,8 @@
         android:hardwareAccelerated="false"
         android:largeHeap="true"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_launcher_new"
+        android:roundIcon="@mipmap/ic_launcher_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -36,6 +36,8 @@
         <activity android:name=".ReviewWritingActivity"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".CertificationActivity"></activity>
+        <activity android:name=".ReviewStartActivity"
+            android:windowSoftInputMode="adjustNothing"></activity>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.jmt_2"

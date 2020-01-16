@@ -1,14 +1,10 @@
 package com.example.jmt_2;
 
 
-import android.graphics.drawable.Drawable;
-
-import android.net.Uri;
-
-
 public class UserData {
     private String userName;
     private String profile;
+    private String myReview;
 
     public UserData(){
 
@@ -17,6 +13,7 @@ public class UserData {
     public UserData(String userName, String profile) {
         this.userName = userName;
         this.profile = profile;
+//        this.myReview = myReview;
 
     }
 
@@ -37,5 +34,12 @@ public class UserData {
         this.profile = profile;
     }
 
+    public String getMyReview() {
+        return myReview;
+    }
+
+    public void setMyReview(String myReview) {
+        this.myReview = myReview;
+    }
 }
 
