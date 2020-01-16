@@ -2,6 +2,7 @@ package com.example.jmt_2;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.Image;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -72,6 +74,20 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
 
             }
         });
+
+        holder.saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageButton button = (ImageButton) v;
+
+                if (button.getBackground() == v.getResources().getDrawable(R.drawable.ic_save_18dp)) {
+                    button.setBackground(v.getResources().getDrawable(R.drawable.ic_save_selected_18dp));
+                } else {
+                    button.setBackground(v.getResources().getDrawable(R.drawable.ic_save_18dp));
+                }
+
+            }
+        });
     }
 
 
@@ -92,6 +108,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
         public ImageView commentImage;
         public TextView commentNickname;
         public ImageButton likeButton;
+        public ImageButton saveButton;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -108,7 +125,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
             listView = (ListView) itemView.findViewById(R.id.comment_listView);
             listView.setVerticalScrollBarEnabled(false);
             likeButton = (ImageButton) itemView.findViewById(R.id.like_button);
-
+            saveButton = (ImageButton) itemView.findViewById(R.id.save_button);
             likeCount.setText("0");
             commentNickname.setText("날아라슈퍼맨");
             commentImage.setImageResource(R.drawable.userimage);
@@ -184,12 +201,23 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
 
 class ReviewData {
     public String nickName;
+
     public String storeNameLocation;
     public String reviewContent;
     public int userImg;
     public int reviewImg;
     private int likeCount = 0;
     private ArrayList<CommentItem> items;
+
+    public ReviewData (String nickName, String storeNameLocation, String reviewContent, int userImg, int reviewImg) {
+        this.nickName = nickName;
+        this.storeNameLocation = storeNameLocation;
+        this.userImg = userImg;
+        this.reviewImg = reviewImg;
+        this.reviewContent = reviewContent;
+        likeCount = 0;
+        items = new ArrayList<>();
+    }
 
     public ReviewData (String nickName, String storeNameLocation, String reviewContent, int userImg, int reviewImg, ArrayList<CommentItem> items) {
         this.nickName = nickName;
