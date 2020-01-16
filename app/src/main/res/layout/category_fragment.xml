@@ -18,24 +18,27 @@
         android:layout_height="0dp"
         android:layout_weight="24"
         android:orientation="horizontal"
-        android:weightSum="1">
+        android:weightSum="360">
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.895" />
+            android:layout_weight="315"
+            android:visibility="invisible"/>
 
         <ImageButton
-            android:id="@+id/searchButton"
+            android:id="@+id/category_searchButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.055"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="24"
             android:background="@drawable/ic_search_20dp" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.05" />
+            android:layout_weight="20"
+            android:visibility="invisible"/>
     </LinearLayout>
 
 
