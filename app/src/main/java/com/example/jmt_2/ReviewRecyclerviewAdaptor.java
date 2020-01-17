@@ -240,7 +240,6 @@ class ReviewData {
     public String nickName;
     public String storeName;
     public String location;
-    public String storeNameLocation;
     public String reviewContent;
     public int numStar;
     public int userImg;
