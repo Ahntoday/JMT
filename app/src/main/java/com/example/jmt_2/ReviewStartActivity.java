@@ -196,6 +196,7 @@ public class ReviewStartActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             ReviewWritingSearchStoreItemView view = null;
+
             if (convertView == null) {
                 view = new ReviewWritingSearchStoreItemView(getApplicationContext());
             } else {

@@ -76,23 +76,13 @@
             android:layout_weight="100"/>
 
         <TextView
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="130"
-            android:fontFamily="@font/scdream4"
-            android:gravity="center"
-            android:text="한식 리뷰를 제일 많이 남긴"
-            android:textColor="#7b7b7b"
-            android:textSize="10sp" />
-
-        <TextView
-            android:id="@+id/userNickname"
+            android:id="@+id/nickNameView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
+            android:layout_weight="160"
             android:fontFamily="@font/scdream4"
-            android:gravity="left"
-            android:text="닉네임 님은"
+            android:gravity="center"
+            android:text="한식 리뷰를 제일 많이 남긴 닉네임 님은"
             android:textColor="#7b7b7b"
             android:textSize="10sp" />
 
@@ -110,6 +100,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/mypage_ment_adj"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:fontFamily="@font/scdream6"
@@ -120,6 +111,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/mypage_ment_n"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:fontFamily="@font/scdream6"

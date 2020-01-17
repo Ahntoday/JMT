@@ -55,13 +55,22 @@
         android:layout_weight="8"
         android:visibility="invisible" />
 
-    <FrameLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="448">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/qna_recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </FrameLayout>
+        android:layout_weight="448"
+        android:gravity="center"
+        android:text="♥ 서비스 준비중입니다 ♥"
+        android:fontFamily="@font/scdream5"
+        android:textColor="@color/colorPrimaryDark"/>
+
+<!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="448">-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/qna_recyclerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+<!--    </FrameLayout>-->
 </LinearLayout>

@@ -691,7 +691,7 @@
                         android:layout_height="210dp"
                         android:layout_gravity="center"
                         android:layout_weight="320"
-                        android:background="@drawable/review_image_style" />
+                        android:background="@drawable/review_textbox" />
 
                     <View
                         android:layout_width="20dp"
