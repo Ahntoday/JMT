@@ -208,7 +208,7 @@
             android:layout_gravity="center"
             android:layout_weight="75"
             android:elevation="3dp"
-            android:background="@drawable/hm_aesang"/>
+            android:background="@drawable/hm_dangkiyo"/>
 
         <View
             android:layout_width="0dp"
