@@ -13,7 +13,15 @@ public class UserData {
     public UserData(String userName, String profile) {
         this.userName = userName;
         this.profile = profile;
-//        this.myReview = myReview;
+        this.myReview = "";
+
+    }
+
+
+    public UserData(String userName, String profile, String myReview) {
+        this.userName = userName;
+        this.profile = profile;
+        this.myReview = myReview;
 
     }
 

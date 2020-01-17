@@ -1,6 +1,8 @@
 package com.example.jmt_2;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -10,7 +12,9 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +24,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,7 +33,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -36,11 +47,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
 public class ReviewWritingActivity extends AppCompatActivity {
-    TextView textView;
+
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
     private FirebaseStorage firebaseStorage;
@@ -50,7 +62,7 @@ public class ReviewWritingActivity extends AppCompatActivity {
     private Bitmap bitmap;
     private final int GET_GALLERY_IMAGE = 200;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
-
+    private String reviewId;
 
     Button buttonsMenu[] = new Button[9];
     Button buttonsPlace[] = new Button[6];
@@ -64,12 +76,22 @@ public class ReviewWritingActivity extends AppCompatActivity {
     ImageButton buttonClose;
     Button addCamera;
     ImageView imageView;
+    EditText editText;
+    EditText editText2;
+    TextView textView;
+    RatingBar ratingBar;
 
     int tagPlace;
     int tagMenu;
     int tagKeyword;
     String storeName;
     String nickName;
+    String cu;
+    String reviewText;
+    String menuEaten;
+    int numStar;
+    String placeWord[] = {"전체", "후문", "상대", "정문", "예대", "전철우"};
+    DataSnapshot data;
 
 
     @Override
@@ -86,6 +108,18 @@ public class ReviewWritingActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.review_writing_storeName);
         storeName = getIntent().getStringExtra("storeName") + "";
         textView.setText(storeName);
+
+        editText = (EditText) findViewById(R.id.review_text);
+        editText2 = (EditText) findViewById(R.id.review_writing_menu_eaten_editText);
+
+        ratingBar = (RatingBar) findViewById(R.id.review_writing_ratingBar);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Log.e("star num", numStar + "");
+                numStar = (int) rating;
+            }
+        });
 
         buttonsMenu[0] = (Button) findViewById(R.id.review_writing_filterButton_allMenu);
         buttonsMenu[1] = (Button) findViewById(R.id.review_writing_filterButton_koreanFood);
@@ -219,6 +253,9 @@ public class ReviewWritingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                reviewText = editText.getText().toString();
+                menuEaten = editText2.getText().toString();
+
                 if (buttonComplete.getCurrentTextColor() == getResources().getColor(R.color.colorWhite)) {
                     setButtonCompleteUnselected();
                 } else {
@@ -234,10 +271,24 @@ public class ReviewWritingActivity extends AppCompatActivity {
                 } else if (checkAllButtonUnselected(buttonsKeywordState)) {
                     setButtonCompleteUnselected();
                     makeToast();
-                } else if (imageView.getResources() == null) {
+                } else if (imageView.getDrawable() == getDrawable(R.drawable.review_textbox)) {
                     makePhotoToast();
                 } else {
-                    String cu = mAuth.getUid();
+                    cu = mAuth.getUid();
+
+                    database.getReference().child("users").child(cu).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            nickName = dataSnapshot.child("userName").getValue().toString();
+                            Log.e("nickname", nickName+"");
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
 
 
                     if (tagPlace == 0 && tagMenu == 0) {
@@ -261,7 +312,40 @@ public class ReviewWritingActivity extends AppCompatActivity {
                         database.getReference().child("jmtMarket").child("locations").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
                         database.getReference().child("jmtMarket").child("keywords").child(Integer.toString(tagPlace)).child(storeName).setValue(storeName);
                     }
-//                    database.getReference().child("users").child(cu).child("review").setValue();
+
+                    final ReviewData reviewData1 = new ReviewData(cu+"", nickName+"", storeName+"", numStar, placeWord[tagPlace]+"", reviewText+"", menuEaten+"");
+                    Log.e("nickName2", nickName+"");
+                    database.getReference().child("users").child(cu).child("review").push().setValue(reviewData1);
+                    database.getReference().child("users").child(cu).child("review").addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                            reviewId = dataSnapshot.getKey();
+
+                            database.getReference().child("reviewData").child(reviewId).setValue(reviewData1);
+                        }
+
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
 
                     upload();
                     gotoMainActivity();
@@ -335,20 +419,26 @@ public class ReviewWritingActivity extends AppCompatActivity {
     };
 
     private void sendTakePhotoIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-            }
+        int permissionCheck = ContextCompat.checkSelfPermission(ReviewWritingActivity.this, Manifest.permission.CAMERA);
 
-            if (photoFile != null) {
-                photoUri = FileProvider.getUriForFile(this, getPackageName(), photoFile);
+        if (permissionCheck == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(ReviewWritingActivity.this, new String[]{Manifest.permission.CAMERA}, 0);
+        } else {
+            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                File photoFile = null;
+                try {
+                    photoFile = createImageFile();
+                } catch (IOException ex) {
+                    // Error occurred while creating the File
+                }
 
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                if (photoFile != null) {
+                    photoUri = FileProvider.getUriForFile(this, getPackageName(), photoFile);
+
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
             }
         }
     }
@@ -417,7 +507,7 @@ public class ReviewWritingActivity extends AppCompatActivity {
 
     private void upload() {
         firebaseStorage = FirebaseStorage.getInstance();
-        final StorageReference storageRef = firebaseStorage.getReferenceFromUrl("gs://jmt-project-e3de3.appspot.com").child(user.getUid());
+        final StorageReference storageRef = firebaseStorage.getReferenceFromUrl("gs://jmt-project-e3de3.appspot.com").child("ReviewImage").child(user.getUid());
         imageView.setDrawingCacheEnabled(true);
         imageView.buildDrawingCache();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

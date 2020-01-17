@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
+import android.net.Uri;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,11 +56,11 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int i) {
 
-        holder.textNickName.setText(reviewData.get(i).nickName);
-        holder.storeInfo.setText(reviewData.get(i).storeName+", "+reviewData.get(i).location);
-        holder.reviewContent.setText(reviewData.get(i).reviewContent);
-        holder.userImage.setImageResource(reviewData.get(i).userImg);
-        holder.foodImage.setImageResource(reviewData.get(i).reviewImg);
+        holder.textNickName.setText(reviewData.get(i).getNickName());
+        holder.storeInfo.setText(reviewData.get(i).getStoreName()+", "+reviewData.get(i).getPlace());
+        holder.reviewContent.setText(reviewData.get(i).getReviewContent());
+        holder.userImage.setImageResource(reviewData.get(i).getUserImg());
+        holder.foodImage.setImageResource(reviewData.get(i).getReviewImg());
         holder.likeCount.setText(reviewData.get(i).getLikeCount()+"");
 
         holder.listView.setAdapter(commentAdapter);
@@ -98,6 +100,10 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
 
             }
         });
+
+
+        holder.ratingBar.setNumStars(reviewData.get(i).getNumStar());
+
     }
 
 
@@ -122,6 +128,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
         private FirebaseDatabase database;
         private FirebaseUser user;
         public ImageButton saveButton;
+        public RatingBar ratingBar;
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -140,6 +147,7 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
             likeButton = (ImageButton) itemView.findViewById(R.id.like_button);
             saveButton = (ImageButton) itemView.findViewById(R.id.save_button);
             likeCount.setText("0");
+            ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
 
             mAuth = FirebaseAuth.getInstance();
             user = mAuth.getCurrentUser();
@@ -237,27 +245,57 @@ public class ReviewRecyclerviewAdaptor extends RecyclerView.Adapter<ReviewRecycl
 }
 
 class ReviewData {
-    public String nickName;
-    public String storeName;
-    public String location;
-    public String storeNameLocation;
-    public String reviewContent;
-    public int numStar;
-    public int userImg;
-    public int reviewImg;
+    private String userId;
+    private String commentId;
+    private String nickName;
+    private String storeName;
+    private String place;
+    private String menu;
+    private String keyword;
+    private String reviewContent;
+    private String menuEaten;
+    private int numStar;
+    private int userImg;
+    private int reviewImg;
     private int likeCount = 0;
     private ArrayList<CommentItem> items;
 
-    public ReviewData (String nickName, String storeName, String location, String reviewContent, int userImg, int reviewImg, ArrayList<CommentItem> items) {
+    public ReviewData (String nickName, String storeName, int numStar, String place, String reviewContent, int userImg, int reviewImg, ArrayList<CommentItem> items) {
         this.nickName = nickName;
         this.storeName = storeName;
-        this.location = location;
+        this.place = place;
+        this.userImg = userImg;
+        this.numStar = numStar;
+        this.reviewImg = reviewImg;
+        this.reviewContent = reviewContent;
+        likeCount = 0;
+        this.items = items;
+    }
+
+    public ReviewData (String nickName, String storeName, String place, String reviewContent, int userImg, int reviewImg, ArrayList<CommentItem> items) {
+        this.nickName = nickName;
+        this.storeName = storeName;
+        this.place = place;
         this.userImg = userImg;
         this.reviewImg = reviewImg;
         this.reviewContent = reviewContent;
         likeCount = 0;
         this.items = items;
     }
+
+    public ReviewData (String userId, String nickName, String storeName, int numStar, String place, String reviewContent, String menuEaten) {
+        this.nickName = nickName;
+        this.storeName = storeName;
+        this.place = place;
+        this.reviewContent = reviewContent;
+        this.menuEaten = menuEaten;
+        this.numStar = numStar;
+        this.userId = userId;
+        likeCount = 0;
+        userImg = R.drawable.temp_user_image_20dp;
+        items = new ArrayList<>();
+    }
+
 
     public String getNickName() {
         return nickName;
@@ -273,14 +311,6 @@ class ReviewData {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public int getNumStar() {
@@ -339,4 +369,51 @@ class ReviewData {
         likeCount--;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getMenuEaten() {
+        return menuEaten;
+    }
+
+    public void setMenuEaten(String menuEaten) {
+        this.menuEaten = menuEaten;
+    }
 }

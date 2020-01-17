@@ -1,5 +1,6 @@
 package com.example.jmt_2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +34,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<CardData> cardData = new ArrayList<>();
     private Button filterButton;
+    private ImageButton searchButton;
     private TextView textView;
     private TextView textView2;
     private FirebaseAuth mAuth;
@@ -227,13 +230,22 @@ public class HomeFragment extends Fragment {
         String textFilterButton = "#" + textView.getText().toString() + " #" + textMenu + " #" + textKeyword;
         filterButton.setText(textFilterButton);
 
-
-
+        searchButton = (ImageButton) view.findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                gotoSearchActivity();
+            }
+        });
         return view;
     }
 
     private void gotoFilterActivity() {
         Intent intent = new Intent(this.getActivity(), FilteringActivity.class);
+        startActivity(intent);
+    }
+
+    private void gotoSearchActivity(){
+        Intent intent = new Intent(this.getActivity(), SearchActivity.class);
         startActivity(intent);
     }
 }

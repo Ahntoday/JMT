@@ -11,4 +11,5 @@
     <color name="colorTabTextUnselected">#d2d2d2</color>
     <color name="colorSubBlack">#7B7B7B</color>
     <color name="colorTransparentBlack">#80000000</color>
+    <color name="colorEditBackground">#11313131</color>
 </resources>
